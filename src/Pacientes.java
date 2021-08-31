@@ -118,4 +118,13 @@ public class Pacientes {
     }
     //MÉTODOS
 
+    public Pacientes(String nome, String cpf, byte estadoCivil, String sexo, Date dateNascimento, Date dataCadastro) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.estadoCivil = estadoCivil;
+        this.sexo = sexo;
+        this.dateNascimento = dateNascimento;
+        this.dataCadastro = dataCadastro;
+    }
+
 }
