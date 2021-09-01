@@ -1,7 +1,29 @@
+import java.sql.Date;
+
+import javax.swing.plaf.TreeUI;
+
 public class Medicos extends Funcionarios {
     private String CRM, especialidadesAtendidas;
     private float salario, valorlim_consulta, valor_consulta;
     private int nro_consultas;
+
+
+    //Associação com plano de saude
+    private PlanoDeSaude[] planoDeSaude;
+    
+    public Medicos(String cpf, PlanoDeSaude[] planoDeSaude) {
+        super(cpf);
+        this.planoDeSaude = planoDeSaude;
+    }
+
+    public PlanoDeSaude[] getPlanoDeSaude() {
+        return planoDeSaude;
+    }
+
+    public boolean setPlanoDeSaude(PlanoDeSaude[] planoDeSaude) {
+        this.planoDeSaude = planoDeSaude;
+        return true;
+    }
 
     //Valor de cada consulta
     public float getValor_consulta() {
@@ -83,6 +105,18 @@ public class Medicos extends Funcionarios {
         if(nro_consultas > valorlim_consulta){
             this.salario = nro_consultas * valor_consulta; 
         }
+    }
+
+    public Medicos(String nome, String cpf, String rg, String usuario, String senha, String numeroCarteiraDeTrabalho,
+            byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase, String cRM, String especialidadesAtendidas,
+            float salario, float valorlim_consulta, float valor_consulta, int nro_consultas) {
+        super(nome, cpf, rg, usuario, senha, numeroCarteiraDeTrabalho, estadoCivil, dataAdmissaoNaClinica, salarioBase);
+        CRM = cRM;
+        this.especialidadesAtendidas = especialidadesAtendidas;
+        this.salario = salario;
+        this.valorlim_consulta = valorlim_consulta;
+        this.valor_consulta = valor_consulta;
+        this.nro_consultas = nro_consultas;
     }
 
 }

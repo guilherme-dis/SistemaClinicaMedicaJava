@@ -1,3 +1,5 @@
+import java.sql.Date;
+
 public class OutrosFuncionarios extends Funcionarios {
     private float salario_fixo;
     private float valor_gratificacao;
@@ -12,15 +14,22 @@ public class OutrosFuncionarios extends Funcionarios {
     // Metodo Cria OutrosFuncionarios
     // Parametro: salario_fixo, gratificacao, cargo
     // Retorno: Seta valores nas variaveis principais referentes
-    public OutrosFuncionarios(float salario_fixo, float valor_gratificacao, String cargo) {
-        this.salario_fixo = salario_fixo;
-        this.valor_gratificacao = valor_gratificacao;
-        this.cargo = cargo;
-    }
+    
 
     // Valor de gratificacao
     public float getValor_gratificacao() {
         return valor_gratificacao;
+    }
+
+    public OutrosFuncionarios(String nome, String cpf, String rg, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase,
+            float salario_fixo, float valor_gratificacao, String cargo, int nro_consultas, float valorlim_consulta) {
+        super(nome, cpf, rg, usuario, senha, numeroCarteiraDeTrabalho, estadoCivil, dataAdmissaoNaClinica, salarioBase);
+        this.salario_fixo = salario_fixo;
+        this.valor_gratificacao = valor_gratificacao;
+        this.cargo = cargo;
+        this.nro_consultas = nro_consultas;
+        this.valorlim_consulta = valorlim_consulta;
     }
 
     public boolean setValor_gratificacao(float valor_gratificacao) {
