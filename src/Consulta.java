@@ -6,6 +6,13 @@ public class Consulta {
     private Date dataDaConsulta;
     private String horarioDaConsulta, medicamentos, observacoes;
     private Text receita;
+    private Pacientes paciente;
+    private Medicos medico;
+    
+    public Consulta(Pacientes paciente, Medicos medico) {
+        this.paciente = paciente;
+        this.medico = medico;
+    }
 
     public Date getDataDaConsulta() {
         return dataDaConsulta;

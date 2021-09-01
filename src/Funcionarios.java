@@ -1,50 +1,11 @@
 import java.sql.Date;
 
-public class Funcionarios {
-    private String nome, cpf, rg, usuario, senha, NumeroCarteiraDeTrabalho;
-    private byte estadoCivil;
+public class Funcionarios extends Pessoas{
+    private String  usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
     private float salarioBase;
 
-    // NOME
-    public String getNome() {
-        return nome;
-    }
-
-    public boolean setNome(String nome) {
-        if (nome.length() > 0) {
-            this.nome = nome;
-            return true;
-        } else
-            return false;
-
-    }
-
-    // CPF
-    public String getCpf() {
-        return cpf;
-    }
-
-    public boolean setCpf(String cpf) {
-        if (ValidaCPF.isCPF(cpf)) {
-            this.cpf = cpf;
-            return true;
-        } else
-            return false;
-    }
-
-    // RG
-    public String getRg() {
-        return rg;
-    }
-
-    public boolean setRg(String rg) {
-        if (rg.length() != 8) {
-            return false;
-        }
-        this.rg = rg;
-        return true;
-    }
+    
 
     // USUARIO
     public String getUsuario() {
@@ -85,32 +46,7 @@ public class Funcionarios {
         return true;
     }
 
-    // ESTADO CIVIL
-    public String getEstadoCivil() {
-        if (this.estadoCivil == 0) {
-            return "solteiro";
-        } else if (this.estadoCivil == 1) {
-            return "casado";
-        }
-        return "divorciado";
-    }
-
-    public boolean setEstadoCivil(String estadoCivil) {
-        if (estadoCivil == "solteiro") {
-            this.estadoCivil = 0;
-            return true;
-        }
-        if (estadoCivil == "casado") {
-            this.estadoCivil = 1;
-            return true;
-        }
-        if (estadoCivil == "divorciado") {
-            this.estadoCivil = 2;
-            return true;
-        }
-
-        return false;
-    }
+    
 
     // DATA DE ADMISSÃO NA CLINICA
     public Date getDataAdmissaoNaClinica() {
@@ -132,21 +68,20 @@ public class Funcionarios {
         return true;
     }
 
-    public Funcionarios(String nome, String cpf, String rg, String usuario, String senha,
-            String numeroCarteiraDeTrabalho, byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
+    public Funcionarios(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase) {
+        super(nome, cpf, rg, estadoCivil);
         this.usuario = usuario;
         this.senha = senha;
         NumeroCarteiraDeTrabalho = numeroCarteiraDeTrabalho;
-        this.estadoCivil = estadoCivil;
         this.dataAdmissaoNaClinica = dataAdmissaoNaClinica;
         this.salarioBase = salarioBase;
     }
 
+    
+
     public Funcionarios(String cpf) {
-        this.cpf = cpf;
+        super(cpf);
     }
 
 }
