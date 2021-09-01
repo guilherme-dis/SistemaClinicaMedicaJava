@@ -132,4 +132,21 @@ public class Funcionarios {
         return true;
     }
 
+    public Funcionarios(String nome, String cpf, String rg, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.usuario = usuario;
+        this.senha = senha;
+        NumeroCarteiraDeTrabalho = numeroCarteiraDeTrabalho;
+        this.estadoCivil = estadoCivil;
+        this.dataAdmissaoNaClinica = dataAdmissaoNaClinica;
+        this.salarioBase = salarioBase;
+    }
+
+    public Funcionarios(String cpf) {
+        this.cpf = cpf;
+    }
+
 }
