@@ -8,7 +8,48 @@ public class Consulta {
     private Text receita;
     private Pacientes paciente;
     private Medicos medico;
-    
+    private static int nroConsultas;
+    private static int limiteConsultas;
+
+
+
+    public Pacientes getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Pacientes paciente) {
+        this.paciente = paciente;
+    }
+
+    public Medicos getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medicos medico) {
+        this.medico = medico;
+    }
+
+    public static int getNroConsultas() {
+        return nroConsultas;
+    }
+
+    public static void setNroConsultas(int nroConsultas) {
+        Consulta.nroConsultas = nroConsultas;
+    }
+
+    public static int getLimiteConsultas() {
+        return limiteConsultas;
+    }
+
+    public static void setLimiteConsultas(int limiteConsultas) {
+        Consulta.limiteConsultas = limiteConsultas;
+    }
+
+    public boolean resetConsultas(){
+        this.nroConsultas=0;
+        return true;
+    }
+
     public Consulta(Pacientes paciente, Medicos medico) {
         this.paciente = paciente;
         this.medico = medico;

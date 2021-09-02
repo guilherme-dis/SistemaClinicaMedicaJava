@@ -21,11 +21,14 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public PacienteSemPlanoDeSaude(String nome, String cpf, byte estadoCivil, String sexo, Date dateNascimento,
-            Date dataCadastro, float descontoEspecial, float valorPagoNaUltimaConsulta) {
-        super(nome, cpf, estadoCivil, sexo, dateNascimento, dataCadastro);
+    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, byte estadoCivil, Date dataUltimaConsulta,
+            String sexo, Date dateNascimento, Date dataCadastro, float descontoEspecial,
+            float valorPagoNaUltimaConsulta) {
+        super(nome, cpf, rg, estadoCivil, dataUltimaConsulta, sexo, dateNascimento, dataCadastro);
         this.descontoEspecial = descontoEspecial;
         this.valorPagoNaUltimaConsulta = valorPagoNaUltimaConsulta;
     }
+
+    
 
 }
