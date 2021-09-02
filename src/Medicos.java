@@ -1,11 +1,10 @@
 import java.sql.Date;
 
-import javax.swing.plaf.TreeUI;
 
 public class Medicos extends Funcionarios {
     private String CRM, especialidadesAtendidas;
     private float salario, valorlim_consulta, valor_consulta;
-    private int nro_consultas;
+    private int nro_consultas,SomaConsultasMes;
 
 
     //Associação com plano de saude
@@ -107,16 +106,24 @@ public class Medicos extends Funcionarios {
         }
     }
 
-    public Medicos(String nome, String cpf, String rg, String usuario, String senha, String numeroCarteiraDeTrabalho,
-            byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase, String cRM, String especialidadesAtendidas,
-            float salario, float valorlim_consulta, float valor_consulta, int nro_consultas) {
-        super(nome, cpf, rg, usuario, senha, numeroCarteiraDeTrabalho, estadoCivil, dataAdmissaoNaClinica, salarioBase);
+    public Medicos(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, String cRM,
+            String especialidadesAtendidas, float salario, float valorlim_consulta, float valor_consulta,
+            int nro_consultas, PlanoDeSaude[] planoDeSaude) {
+        super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
         this.especialidadesAtendidas = especialidadesAtendidas;
         this.salario = salario;
         this.valorlim_consulta = valorlim_consulta;
         this.valor_consulta = valor_consulta;
         this.nro_consultas = nro_consultas;
+        this.planoDeSaude = planoDeSaude;
     }
+
+    public boolean resetSomaConsultaMes(){
+        this.SomaConsultasMes=0;
+        return true;
+    }
+    //Metodo para calcular o salário
 
 }

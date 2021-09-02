@@ -2,41 +2,51 @@ import java.sql.Date;
 
 public class OutrosFuncionarios extends Funcionarios {
     private float salario_fixo;
-    private float valor_gratificacao;
+    private float valorGratificacao;
     private String cargo;
     private int nro_consultas;
     private float valorlim_consulta;
+    private static float valorASerPagoDeGratificacao;
+
     /*
-    Setar previamente valores de: valor_gratificacao, salario_fixo,
-    nro_consultas,valorlim_consultas
-    */
+     * Setar previamente valores de: valorGratificacao, salario_fixo,
+     * nro_consultas,valorlim_consultas
+     */
 
     // Metodo Cria OutrosFuncionarios
     // Parametro: salario_fixo, gratificacao, cargo
     // Retorno: Seta valores nas variaveis principais referentes
-    
 
-    // Valor de gratificacao
-    public float getValor_gratificacao() {
-        return valor_gratificacao;
+    public static float getValorASerPagoDeGratificacao() {
+        return valorASerPagoDeGratificacao;
     }
 
-    public OutrosFuncionarios(String nome, String cpf, String rg, String usuario, String senha,
-            String numeroCarteiraDeTrabalho, byte estadoCivil, Date dataAdmissaoNaClinica, float salarioBase,
-            float salario_fixo, float valor_gratificacao, String cargo, int nro_consultas, float valorlim_consulta) {
-        super(nome, cpf, rg, usuario, senha, numeroCarteiraDeTrabalho, estadoCivil, dataAdmissaoNaClinica, salarioBase);
+    public static boolean setValorASerPagoDeGratificacao(float valorASerPagoDeGratificacao) {
+        OutrosFuncionarios.valorASerPagoDeGratificacao = valorASerPagoDeGratificacao;
+        return true;
+    }
+
+    // Valor de gratificacao
+    public float getvalorGratificacao() {
+        return valorGratificacao;
+    }
+
+    public OutrosFuncionarios(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, float salario_fixo,
+            float valorGratificacao, String cargo, int nro_consultas, float valorlim_consulta) {
+        super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         this.salario_fixo = salario_fixo;
-        this.valor_gratificacao = valor_gratificacao;
+        this.valorGratificacao = valorGratificacao;
         this.cargo = cargo;
         this.nro_consultas = nro_consultas;
         this.valorlim_consulta = valorlim_consulta;
     }
 
-    public boolean setValor_gratificacao(float valor_gratificacao) {
-        if (valor_gratificacao <= 0) {
+    public boolean setvalorGratificacao(float valorGratificacao) {
+        if (valorGratificacao <= 0) {
             return false;
         } else {
-            this.valor_gratificacao = valor_gratificacao;
+            this.valorGratificacao = valorGratificacao;
             return true;
         }
     }
@@ -99,9 +109,14 @@ public class OutrosFuncionarios extends Funcionarios {
 
     public void confere_gratificacao() {
         if (nro_consultas > valorlim_consulta) {
-            salario_fixo += valor_gratificacao;
+            salario_fixo += valorGratificacao;
         }
 
     }
-
+    public float calcularSalario(){
+        if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
+            return salario_fixo+valorGratificacao;
+        }
+        return salario_fixo;
+    }
 }

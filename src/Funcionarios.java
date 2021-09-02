@@ -68,6 +68,10 @@ public class Funcionarios extends Pessoas{
         return true;
     }
 
+    
+
+    
+
     public Funcionarios(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
             String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase) {
         super(nome, cpf, rg, estadoCivil);
@@ -77,8 +81,6 @@ public class Funcionarios extends Pessoas{
         this.dataAdmissaoNaClinica = dataAdmissaoNaClinica;
         this.salarioBase = salarioBase;
     }
-
-    
 
     public Funcionarios(String cpf) {
         super(cpf);
