@@ -40,7 +40,7 @@ public class Medicos extends Funcionarios {
         return true;
     }
 
-    //Valor de cada consulta
+    //Valor de cada consultaa
     public float getValor_consulta() {
         return valor_consulta;
     }
