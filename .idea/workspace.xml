@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c8e956-6080-415b-9022-3760dbb66dfc" name="Changes" comment="Teste do TODO" />
+    <list default="true" id="43c8e956-6080-415b-9022-3760dbb66dfc" name="Changes" comment="README">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoFinalPOO1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoFinalPOO1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Consulta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Consulta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Exame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Funcionarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Funcionarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Medicos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Medicos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/OutrosFuncionarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/OutrosFuncionarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pacientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pacientes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pessoas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pessoas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Consulta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Medicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Medicos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Pacientes.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +30,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Modules/ValidaCPF.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Modules/Pacientes.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Modules/Pessoas.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Modules/Medicos.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Modules/App.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yFG8qTkOx6PvONmZmfxOjGOXtI" />
@@ -22,14 +43,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -60,7 +86,8 @@
       <workItem from="1631841818477" duration="3165000" />
       <workItem from="1631845358779" duration="936000" />
       <workItem from="1631989992972" duration="25000" />
-      <workItem from="1631994424871" duration="764000" />
+      <workItem from="1631994424871" duration="2270000" />
+      <workItem from="1632007040190" duration="2240000" />
     </task>
     <task id="LOCAL-00001" summary="Teste de commit no intellij">
       <created>1631994807138</created>
@@ -76,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631995185708</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="README">
+      <created>1631995429335</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631995429335</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,12 +136,49 @@
             </State>
           </value>
         </entry>
+        <entry key="c77cd47c-4448-4bc0-a615-096ec9437a0b">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="c77cd47c-4448-4bc0-a615-096ec9437a0b" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Teste de commit no intellij" />
     <MESSAGE value="Teste do TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teste do TODO" />
+    <MESSAGE value="README" />
+    <option name="LAST_COMMIT_MESSAGE" value="README" />
   </component>
 </project>

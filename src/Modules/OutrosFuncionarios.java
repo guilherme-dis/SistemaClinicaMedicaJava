@@ -113,5 +113,18 @@ public class OutrosFuncionarios extends Funcionarios {
         }
 
     }
-    
+
+    public float getValorGratificacao() {
+        return valorGratificacao;
+    }
+
+    public boolean setValorGratificacao(float valorGratificacao) {
+        this.valorGratificacao = valorGratificacao;
+        return true;
+    }
+
+    public boolean setNroConsultas(int nroConsultas) {
+        this.nroConsultas = nroConsultas;
+        return true;
+    }
 }

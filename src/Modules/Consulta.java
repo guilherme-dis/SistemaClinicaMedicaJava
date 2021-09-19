@@ -1,9 +1,10 @@
 package Modules;
 
-import java.sql.Date;
-
 import org.w3c.dom.Text;
 
+import java.util.Date;
+//TODO perguntar para a professora como que eu mando o dinheiro para o médico, por exemplo.
+// Quando eu realizo uma consulta, como eu sei quanto de dinheiro que essa consulta vale. e se o metodo realizar consulta, chama o metodo calcular salário do médico
 public class Consulta {
     private Date dataDaConsulta;
     private String horarioDaConsulta, medicamentos, observacoes;
@@ -13,7 +14,7 @@ public class Consulta {
     private Pacientes paciente;
     private Medicos medico;
     private Exames[] exames;
-    private Funcionarios[] funcionarios;
+    private OutrosFuncionarios outrosFuncionarios;
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
@@ -32,6 +33,17 @@ public class Consulta {
     //3.e
     private static int limiteConsultas;
 
+    //4
+    public void realizarConsulta(String horarioDaConsulta,String medicamentos,String observacoes,Text receita ){
+        dataDaConsulta=new Date();
+        this.horarioDaConsulta=horarioDaConsulta;
+        this.medicamentos=medicamentos;
+        this.observacoes=observacoes;
+        this.receita=receita;
+        paciente.setDataUltimaConsulta(dataDaConsulta);
+        medico.setNro_consultas(getNroConsultas()+1);
+        outrosFuncionarios.setNroConsultas(getNroConsultas()+1);
+    }
 
     public Pacientes getPaciente() {
         return paciente;

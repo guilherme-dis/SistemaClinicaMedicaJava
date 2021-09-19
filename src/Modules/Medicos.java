@@ -1,12 +1,9 @@
 package Modules;
 
-import java.sql.Date;
-//TODO teste do todo da IDE intellij
+import org.jetbrains.annotations.NotNull;
 
-//FIXME teste
-// -outro teste
-// -mais um teste
-//vai teste atras de teste
+import java.sql.Date;
+
 
 public class Medicos extends Funcionarios {
     private String CRM, especialidadesAtendidas;
@@ -91,7 +88,7 @@ public class Medicos extends Funcionarios {
         return especialidadesAtendidas;
     }
 
-    public boolean setEspecialidadesAtendidas(String especialidadesAtendidas) {
+    public boolean setEspecialidadesAtendidas( String especialidadesAtendidas) {
         if (especialidadesAtendidas.length() > 0) {
             this.especialidadesAtendidas = especialidadesAtendidas;
             return true;
