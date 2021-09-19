@@ -1,5 +1,5 @@
 package Modules;
-import java.sql.Date;
+import java.util.Date;
 
 public class PacienteSemPlanoDeSaude extends Pacientes {
     private float descontoEspecial, valorPagoNaUltimaConsulta;
@@ -22,12 +22,12 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, byte estadoCivil, Date dataUltimaConsulta,
+    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta,
             String sexo, Date dateNascimento, Date dataCadastro, float descontoEspecial,
             float valorPagoNaUltimaConsulta) {
         super(nome, cpf, rg, estadoCivil, dataUltimaConsulta, sexo, dateNascimento, dataCadastro);
-        this.descontoEspecial = descontoEspecial;
-        this.valorPagoNaUltimaConsulta = valorPagoNaUltimaConsulta;
+        setDescontoEspecial(descontoEspecial);
+        setValorPagoNaUltimaConsulta(valorPagoNaUltimaConsulta);
     }
 
     

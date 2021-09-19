@@ -1,5 +1,5 @@
 package Modules;
-import java.sql.Date;
+import java.util.Date;
 
 public class PacienteComPlanoDeSaude extends Pacientes {
     private String planoDeSaude;
@@ -42,14 +42,14 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, byte estadoCivil, Date dataUltimaConsulta,
+    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta,
             String sexo, Date dateNascimento, Date dataCadastro, String planoDeSaude, String numeroCarteirinha,
             String periodoDeCarencia, Date dataIngreco) {
         super(nome, cpf, rg, estadoCivil, dataUltimaConsulta, sexo, dateNascimento, dataCadastro);
-        this.planoDeSaude = planoDeSaude;
-        this.numeroCarteirinha = numeroCarteirinha;
-        this.periodoDeCarencia = periodoDeCarencia;
-        this.dataIngreco = dataIngreco;
+        setPlanoDeSaude(planoDeSaude);
+        setNumeroCarteirinha(numeroCarteirinha);
+        setPeriodoDeCarencia(periodoDeCarencia);
+        setDataIngreco(dataIngreco);
     }
 
     

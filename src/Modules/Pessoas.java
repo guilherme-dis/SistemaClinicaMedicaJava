@@ -1,5 +1,7 @@
 package Modules;
 
+import java.util.Objects;
+
 public class Pessoas {
     private String nome, cpf, rg;
     private byte estadoCivil;
@@ -66,15 +68,15 @@ public class Pessoas {
     }
 
     public boolean setEstadoCivil(String estadoCivil) {
-        if (estadoCivil == "solteiro") {
+        if (Objects.equals(estadoCivil, "solteiro")) {
             this.estadoCivil = 0;
             return true;
         }
-        if (estadoCivil == "casado") {
+        if (Objects.equals(estadoCivil, "casado")) {
             this.estadoCivil = 1;
             return true;
         }
-        if (estadoCivil == "divorciado") {
+        if (Objects.equals(estadoCivil, "divorciado")) {
             this.estadoCivil = 2;
             return true;
         }
@@ -82,11 +84,11 @@ public class Pessoas {
         return false;
     }
 
-    public Pessoas(String nome, String cpf, String rg, byte estadoCivil) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.estadoCivil = estadoCivil;
+    public Pessoas(String nome, String cpf, String rg, String estadoCivil) {
+        setNome(nome);
+        setCpf(cpf);
+        setRg(rg);
+        setEstadoCivil(estadoCivil);
     }
 
     public Pessoas(String cpf) {

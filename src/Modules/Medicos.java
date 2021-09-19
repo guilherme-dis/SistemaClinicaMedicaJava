@@ -2,7 +2,7 @@ package Modules;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.sql.Date;
+import java.util.Date;
 
 
 public class Medicos extends Funcionarios {
@@ -124,18 +124,18 @@ public class Medicos extends Funcionarios {
         }
     }
 
-    public Medicos(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
+    public Medicos(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
                    String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, String cRM,
                    String especialidadesAtendidas, float salario, float valorlim_consulta, float valor_consulta,
                    int nro_consultas, PlanoDeSaude[] planoDeSaude) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
-        this.especialidadesAtendidas = especialidadesAtendidas;
-        this.salario = salario;
-        this.valorlim_consulta = valorlim_consulta;
-        this.valor_consulta = valor_consulta;
-        this.nro_consultas = nro_consultas;
-        this.planoDeSaude = planoDeSaude;
+        setEspecialidadesAtendidas(especialidadesAtendidas);
+        setSalario(salario);
+        setValorlim_consulta(valorlim_consulta);
+        setValor_consulta(valor_consulta);
+        setNro_consultas(nro_consultas);
+        setPlanoDeSaude(planoDeSaude);
     }
 
 

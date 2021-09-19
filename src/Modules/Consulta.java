@@ -36,10 +36,10 @@ public class Consulta {
     //4
     public void realizarConsulta(String horarioDaConsulta,String medicamentos,String observacoes,Text receita ){
         dataDaConsulta=new Date();
-        this.horarioDaConsulta=horarioDaConsulta;
-        this.medicamentos=medicamentos;
-        this.observacoes=observacoes;
-        this.receita=receita;
+        setHorarioDaConsulta(horarioDaConsulta);
+        setMedicamentos(medicamentos);
+        setObservacoes(observacoes);
+        setReceita(receita);
         paciente.setDataUltimaConsulta(dataDaConsulta);
         medico.setNro_consultas(getNroConsultas()+1);
         outrosFuncionarios.setNroConsultas(getNroConsultas()+1);

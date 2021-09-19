@@ -1,5 +1,7 @@
 package Modules;
 
+
+
 public class PlanoDeSaude  {
     private String nome, cnpj;
 
@@ -7,7 +9,7 @@ public class PlanoDeSaude  {
         return nome;
     }
 
-    public boolean setNome(String nome) {
+    public boolean setNome( String nome) {
         this.nome = nome;
         return true;
     }
@@ -22,8 +24,8 @@ public class PlanoDeSaude  {
     }
 
     public PlanoDeSaude(String nome, String cnpj) {
-        this.nome = nome;
-        this.cnpj = cnpj;
+        setNome(nome);
+        setCnpj(cnpj);
     }
 
 
