@@ -1,6 +1,6 @@
 package Modules;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Funcionarios extends Pessoas {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
@@ -71,14 +71,14 @@ public class Funcionarios extends Pessoas {
     }
 
 
-    public Funcionarios(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
+    public Funcionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
                         String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase) {
         super(nome, cpf, rg, estadoCivil);
-        this.usuario = usuario;
-        this.senha = senha;
-        NumeroCarteiraDeTrabalho = numeroCarteiraDeTrabalho;
-        this.dataAdmissaoNaClinica = dataAdmissaoNaClinica;
-        this.salarioBase = salarioBase;
+        setUsuario(usuario);
+        setSenha(senha);
+        setNumeroCarteiraDeTrabalho(numeroCarteiraDeTrabalho);
+        setDataAdmissaoNaClinica(dataAdmissaoNaClinica);
+        setSalarioBase(salarioBase);
     }
 
     public Funcionarios(String cpf) {

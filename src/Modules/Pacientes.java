@@ -1,5 +1,5 @@
 package Modules;
-import java.sql.Date;
+import java.util.Date;
 
 public class Pacientes extends Pessoas{
     private Date dataUltimaConsulta;
@@ -52,13 +52,13 @@ public class Pacientes extends Pessoas{
     }
     //MÉTODOS
 
-    public Pacientes(String nome, String cpf, String rg, byte estadoCivil, Date dataUltimaConsulta, String sexo,
+    public Pacientes(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta, String sexo,
             Date dateNascimento, Date dataCadastro) {
         super(nome, cpf, rg, estadoCivil);
-        this.dataUltimaConsulta = dataUltimaConsulta;
-        this.sexo = sexo;
-        this.dateNascimento = dateNascimento;
-        this.dataCadastro = dataCadastro;
+        setDataUltimaConsulta(dataUltimaConsulta);
+        setSexo(sexo);
+        setDateNascimento(dateNascimento);
+        setDataCadastro(dataCadastro);
     }
 
     

@@ -3,7 +3,7 @@ public class Exames {
     private String nome_exame;
 
     public Exames(String nome_exame) {
-        this.nome_exame = nome_exame;
+        setNome_exame(nome_exame);
     }
 
     public String getNome_exame() {

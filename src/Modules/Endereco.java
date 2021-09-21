@@ -7,12 +7,12 @@ public class Endereco {
     //Recebe como parametros as informacoes do endereco
     //Rua , Complemento (apto/casa), bairro, cidade, numero e cep
     public Endereco(String rua, String complemento, String bairro, String cidade, int numero, int cep) {
-        this.rua = rua;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.numero = numero;
-        this.cep = cep;
+        setRua(rua);
+        setComplemento(complemento);
+        setBairro(bairro);
+        setCidade(cidade);
+        setNumero(numero);
+        setCep(cep);
     }
     //Rua
     public String getRua() {

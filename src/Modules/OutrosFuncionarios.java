@@ -1,8 +1,8 @@
 package Modules;
-import java.sql.Date;
+import java.util.Date;
 
 public class OutrosFuncionarios extends Funcionarios {
-    private float salario_fixo;
+    private float salarioFixo;
     private float valorGratificacao;
     private String cargo;
     private int nroConsultas;
@@ -21,9 +21,9 @@ public class OutrosFuncionarios extends Funcionarios {
     public float calcularSalario(){
         if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
 
-            return salario_fixo+valorGratificacao;
+            return salarioFixo+valorGratificacao;
         }
-        return salario_fixo;
+        return salarioFixo;
     }
 
     // Valor de gratificacao
@@ -31,15 +31,15 @@ public class OutrosFuncionarios extends Funcionarios {
         return valorGratificacao;
     }
 
-    public OutrosFuncionarios(String nome, String cpf, String rg, byte estadoCivil, String usuario, String senha,
-            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, float salario_fixo,
+    public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, float salarioFixo,
             float valorGratificacao, String cargo, int nroConsultas, float valorlim_consulta) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
-        this.salario_fixo = salario_fixo;
-        this.valorGratificacao = valorGratificacao;
-        this.cargo = cargo;
-        this.nroConsultas = nroConsultas;
-        this.valorlim_consulta = valorlim_consulta;
+        setsalarioFixo(salarioFixo);
+        setvalorGratificacao(valorGratificacao);
+        setCargo(cargo);
+        setnroConsultas(nroConsultas);
+        setValorlim_consulta(valorlim_consulta);
     }
 
     public boolean setvalorGratificacao(float valorGratificacao) {
@@ -81,15 +81,15 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     // Salario
-    public float getSalario_fixo() {
-        return salario_fixo;
+    public float getsalarioFixo() {
+        return salarioFixo;
     }
 
-    public boolean setSalario_fixo(float salario_fixo) {
-        if (salario_fixo <= 0)
+    public boolean setsalarioFixo(float salarioFixo) {
+        if (salarioFixo <= 0)
             return false;
         else {
-            this.salario_fixo = salario_fixo;
+            this.salarioFixo = salarioFixo;
             return true;
         }
     }
@@ -109,9 +109,22 @@ public class OutrosFuncionarios extends Funcionarios {
 
     public void confere_gratificacao() {
         if (nroConsultas > valorlim_consulta) {
-            salario_fixo += valorGratificacao;
+            salarioFixo += valorGratificacao;
         }
 
     }
-    
+
+    public float getValorGratificacao() {
+        return valorGratificacao;
+    }
+
+    public boolean setValorGratificacao(float valorGratificacao) {
+        this.valorGratificacao = valorGratificacao;
+        return true;
+    }
+
+    public boolean setNroConsultas(int nroConsultas) {
+        this.nroConsultas = nroConsultas;
+        return true;
+    }
 }
