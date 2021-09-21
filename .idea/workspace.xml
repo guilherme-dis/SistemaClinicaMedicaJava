@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43c8e956-6080-415b-9022-3760dbb66dfc" name="Changes" comment="Tópico 4 finalizado. Proximo passo é a execução dos testes no App">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Consulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Exames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Exames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Medicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Medicos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/PacienteComPlanoDeSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/PacienteComPlanoDeSaude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/PacienteSemPlanoDeSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/PacienteSemPlanoDeSaude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Pacientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Pessoas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Pessoas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/PlanoDeSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/PlanoDeSaude.java" afterDir="false" />
-    </list>
+    <list default="true" id="43c8e956-6080-415b-9022-3760dbb66dfc" name="Changes" comment="Trocado os this's por set(nome da função). Iniciado o programa main" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +77,7 @@
       <workItem from="1631989992972" duration="25000" />
       <workItem from="1631994424871" duration="2270000" />
       <workItem from="1632007040190" duration="2559000" />
-      <workItem from="1632073049563" duration="4724000" />
+      <workItem from="1632073049563" duration="4882000" />
     </task>
     <task id="LOCAL-00001" summary="Teste de commit no intellij">
       <created>1631994807138</created>
@@ -121,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632010224846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Trocado os this's por set(nome da função). Iniciado o programa main">
+      <created>1632080137564</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632080137564</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +184,7 @@
     <MESSAGE value="Teste do TODO" />
     <MESSAGE value="README" />
     <MESSAGE value="Tópico 4 finalizado. Proximo passo é a execução dos testes no App" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tópico 4 finalizado. Proximo passo é a execução dos testes no App" />
+    <MESSAGE value="Trocado os this's por set(nome da função). Iniciado o programa main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trocado os this's por set(nome da função). Iniciado o programa main" />
   </component>
 </project>
