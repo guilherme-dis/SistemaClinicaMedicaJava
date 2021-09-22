@@ -3,7 +3,7 @@ package Modules;
 
 
 public class PlanoDeSaude  {
-    private String nome, cnpj;
+    private String nome, CNPJ;
 
     public String getNome() {
         return nome;
@@ -14,12 +14,12 @@ public class PlanoDeSaude  {
         return true;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCNPJ() {
+        return CNPJ;
     }
 
     public boolean setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        this.CNPJ = cnpj;
         return true;
     }
 

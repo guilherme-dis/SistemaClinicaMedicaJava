@@ -2,23 +2,23 @@ package Modules;
 import java.util.Date;
 
 public class OutrosFuncionarios extends Funcionarios {
-    private float salarioFixo;
-    private float valorGratificacao;
+    private double salarioFixo;
+    private double valorGratificacao;
     private String cargo;
     private int nroConsultas;
-    private float valorlim_consulta;
+    private double valorlimConsulta;
 
     //3.f
-    private static float valorASerPagoDeGratificacao;
-    public static float getValorASerPagoDeGratificacao() {
+    private static double valorASerPagoDeGratificacao;
+    public static double getValorASerPagoDeGratificacao() {
         return valorASerPagoDeGratificacao;
     }
-    public static boolean setValorASerPagoDeGratificacao(float valorASerPagoDeGratificacao) {
+    public static boolean setValorASerPagoDeGratificacao(double valorASerPagoDeGratificacao) {
         OutrosFuncionarios.valorASerPagoDeGratificacao = valorASerPagoDeGratificacao;
         return true;
     }
     //3.i
-    public float calcularSalario(){
+    public double calcularSalario(){
         if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
 
             return salarioFixo+valorGratificacao;
@@ -27,22 +27,22 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     // Valor de gratificacao
-    public float getvalorGratificacao() {
+    public double getvalorGratificacao() {
         return valorGratificacao;
     }
 
     public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, float salarioFixo,
-            float valorGratificacao, String cargo, int nroConsultas, float valorlim_consulta) {
+            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
+            double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         setsalarioFixo(salarioFixo);
         setvalorGratificacao(valorGratificacao);
         setCargo(cargo);
         setnroConsultas(nroConsultas);
-        setValorlim_consulta(valorlim_consulta);
+        setValorlim_consulta(valorlimConsulta);
     }
 
-    public boolean setvalorGratificacao(float valorGratificacao) {
+    public boolean setvalorGratificacao(double valorGratificacao) {
         if (valorGratificacao <= 0) {
             return false;
         } else {
@@ -66,26 +66,26 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     // Valor limite para cada consulta
-    public float getValorlim_consulta() {
-        return valorlim_consulta;
+    public double getValorlimConsulta() {
+        return valorlimConsulta;
     }
 
-    public boolean setValorlim_consulta(float valorlim_consulta) {
+    public boolean setValorlim_consulta(double valorlim_consulta) {
         if (valorlim_consulta <= 0)
             return false;
         else {
-            this.valorlim_consulta = valorlim_consulta;
+            this.valorlimConsulta = valorlim_consulta;
             return true;
         }
 
     }
 
     // Salario
-    public float getsalarioFixo() {
+    public double getsalarioFixo() {
         return salarioFixo;
     }
 
-    public boolean setsalarioFixo(float salarioFixo) {
+    public boolean setsalarioFixo(double salarioFixo) {
         if (salarioFixo <= 0)
             return false;
         else {
@@ -108,17 +108,17 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     public void confere_gratificacao() {
-        if (nroConsultas > valorlim_consulta) {
+        if (nroConsultas > valorlimConsulta) {
             salarioFixo += valorGratificacao;
         }
 
     }
 
-    public float getValorGratificacao() {
+    public double getValorGratificacao() {
         return valorGratificacao;
     }
 
-    public boolean setValorGratificacao(float valorGratificacao) {
+    public boolean setValorGratificacao(double valorGratificacao) {
         this.valorGratificacao = valorGratificacao;
         return true;
     }

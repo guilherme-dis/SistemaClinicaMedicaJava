@@ -1,20 +1,41 @@
 package Modules;
 
-import org.w3c.dom.Text;
-
 import java.util.Date;
-//TODO perguntar para a professora como que eu mando o dinheiro para o médico, por exemplo.
-// Quando eu realizo uma consulta, como eu sei quanto de dinheiro que essa consulta vale. e se o metodo realizar consulta, chama o metodo calcular salário do médico
+
 public class Consulta {
     private Date dataDaConsulta;
-    private String horarioDaConsulta, medicamentos, observacoes;
-    private Text receita;
+    private String medicamentos, observacoes;
+    private String receita;
 
     //Associates
-    private Pacientes paciente;
+    private PacienteComPlanoDeSaude pacienteComPlanoDeSaude;
+    private PacienteSemPlanoDeSaude pacienteSemPlanoDeSaude;
     private Medicos medico;
-    private Exames[] exames;
+    private Exames exames;
     private OutrosFuncionarios outrosFuncionarios;
+
+
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, PacienteComPlanoDeSaude paciente, Medicos medico, Exames exames, OutrosFuncionarios outrosFuncionarios) {
+        setDataDaConsulta(dataDaConsulta);
+        setObservacoes(medicamentos);
+        setObservacoes(observacoes);
+        setReceita(receita);
+        setPacienteComPlanoDeSaude(paciente);
+        setMedico(medico);
+        setExames(exames);
+        setOutrosFuncionarios(outrosFuncionarios);
+    }
+
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, PacienteSemPlanoDeSaude paciente, Medicos medico, Exames exames, OutrosFuncionarios outrosFuncionarios) {
+        setDataDaConsulta(dataDaConsulta);
+        setObservacoes(medicamentos);
+        setObservacoes(observacoes);
+        setReceita(receita);
+        setPacienteSemPlanoDeSaude(paciente);
+        setMedico(medico);
+        setExames(exames);
+        setOutrosFuncionarios(outrosFuncionarios);
+    }
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
@@ -34,15 +55,19 @@ public class Consulta {
     private static int limiteConsultas;
 
     //4
-    public void realizarConsulta(String horarioDaConsulta,String medicamentos,String observacoes,Text receita ){
-        dataDaConsulta=new Date();
-        setHorarioDaConsulta(horarioDaConsulta);
-        setMedicamentos(medicamentos);
-        setObservacoes(observacoes);
-        setReceita(receita);
+    //TODO Quando eu realizo uma consulta, tenho que alterar a dada da última consulta, não posso declarala no construtor.
+    // Atualizar tambem o valor pago na última consulta se não tiver plano de saude.
+    // AUMENTAR O NÚMERO DE OCNSULTAS DOS OUTROS FUNCIONARIOS
+    public double realizarConsulta() {
+
         paciente.setDataUltimaConsulta(dataDaConsulta);
-        medico.setNro_consultas(getNroConsultas()+1);
-        outrosFuncionarios.setNroConsultas(getNroConsultas()+1);
+        outrosFuncionarios.setnroConsultas(getNroConsultas() + 1);
+        medico.setNroConsultas(getNroConsultas() + 1);
+
+        if (paciente)
+
+
+            return medico.getValorConsulta();
     }
 
     public Pacientes getPaciente() {
@@ -87,12 +112,39 @@ public class Consulta {
         return true;
     }
 
-    public String getHorarioDaConsulta() {
-        return horarioDaConsulta;
+    public PacienteComPlanoDeSaude getPacienteComPlanoDeSaude() {
+        return pacienteComPlanoDeSaude;
     }
 
-    public boolean setHorarioDaConsulta(String horarioDaConsulta) {
-        this.horarioDaConsulta = horarioDaConsulta;
+    public boolean setPacienteComPlanoDeSaude(PacienteComPlanoDeSaude pacienteComPlanoDeSaude) {
+        this.pacienteComPlanoDeSaude = pacienteComPlanoDeSaude;
+        return true;
+    }
+
+    public PacienteSemPlanoDeSaude getPacienteSemPlanoDeSaude() {
+        return pacienteSemPlanoDeSaude;
+    }
+
+    public boolean setPacienteSemPlanoDeSaude(PacienteSemPlanoDeSaude pacienteSemPlanoDeSaude) {
+        this.pacienteSemPlanoDeSaude = pacienteSemPlanoDeSaude;
+        return true;
+    }
+
+    public Exames getExames() {
+        return exames;
+    }
+
+    public boolean setExames(Exames exames) {
+        this.exames = exames;
+        return true;
+    }
+
+    public OutrosFuncionarios getOutrosFuncionarios() {
+        return outrosFuncionarios;
+    }
+
+    public boolean setOutrosFuncionarios(OutrosFuncionarios outrosFuncionarios) {
+        this.outrosFuncionarios = outrosFuncionarios;
         return true;
     }
 
@@ -114,19 +166,14 @@ public class Consulta {
         return true;
     }
 
-    public Text getReceita() {
+    public String getReceita() {
         return receita;
     }
 
-    public boolean setReceita(Text receita) {
+    public boolean setReceita(String receita) {
         this.receita = receita;
         return true;
     }
 
-    public Consulta(Date dataDaConsulta, String horarioDaConsulta, String observacoes) {
-        this.dataDaConsulta = dataDaConsulta;
-        this.horarioDaConsulta = horarioDaConsulta;
-        this.observacoes = observacoes;
-    }
 
 }

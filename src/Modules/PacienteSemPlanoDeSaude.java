@@ -2,34 +2,40 @@ package Modules;
 import java.util.Date;
 
 public class PacienteSemPlanoDeSaude extends Pacientes {
-    private float descontoEspecial, valorPagoNaUltimaConsulta;
+    private int tipo=1;//apenas para saber se é com ou sem plano
+    //TODO procurar saber como funciona o instanceof
+    private double descontoEspecial, valorPagoNaUltimaConsulta;
 
-    public float getDescontoEspecial() {
+    public double getDescontoEspecial() {
         return descontoEspecial;
     }
 
-    public boolean setDescontoEspecial(float descontoEspecial) {
+    public boolean setDescontoEspecial(double descontoEspecial) {
         this.descontoEspecial = descontoEspecial;
         return true;
     }
 
-    public float getValorPagoNaUltimaConsulta() {
+    public double getValorPagoNaUltimaConsulta() {
         return valorPagoNaUltimaConsulta;
     }
 
-    public boolean setValorPagoNaUltimaConsulta(float valorPagoNaUltimaConsulta) {
+    public boolean setValorPagoNaUltimaConsulta(double valorPagoNaUltimaConsulta) {
         this.valorPagoNaUltimaConsulta = valorPagoNaUltimaConsulta;
         return true;
     }
 
-    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta,
-            String sexo, Date dateNascimento, Date dataCadastro, float descontoEspecial,
-            float valorPagoNaUltimaConsulta) {
-        super(nome, cpf, rg, estadoCivil, dataUltimaConsulta, sexo, dateNascimento, dataCadastro);
+    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
+            String sexo, Date dateNascimento, Date dataCadastro, double descontoEspecial) {
+        super(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro);
         setDescontoEspecial(descontoEspecial);
-        setValorPagoNaUltimaConsulta(valorPagoNaUltimaConsulta);
     }
 
-    
+    public int getTipo() {
+        return tipo;
+    }
 
+    public boolean setTipo(int tipo) {
+        this.tipo = tipo;
+        return true;
+    }
 }

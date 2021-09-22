@@ -1,16 +1,19 @@
 package Modules;
+
 import java.util.Date;
 
 public class PacienteComPlanoDeSaude extends Pacientes {
-    private String planoDeSaude;
+    private int tipo=2;
+    private PlanoDeSaude planoDeSaude;
     private String numeroCarteirinha, periodoDeCarencia;
-    private Date dataIngreco;
+    private Date dataIngrecoNoPlano;
 
-    public String getPlanoDeSaude() {
+
+    public PlanoDeSaude getPlanoDeSaude() {
         return planoDeSaude;
     }
 
-    public boolean setPlanoDeSaude(String planoDeSaude) {
+    public boolean setPlanoDeSaude(PlanoDeSaude planoDeSaude) {
         this.planoDeSaude = planoDeSaude;
         return true;
     }
@@ -33,27 +36,31 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public Date getDataIngreco() {
-        return dataIngreco;
+    public Date getDataIngrecoNoPlano() {
+        return dataIngrecoNoPlano;
     }
 
     public boolean setDataIngreco(Date dataIngreco) {
-        this.dataIngreco = dataIngreco;
+        this.dataIngrecoNoPlano = dataIngreco;
         return true;
     }
 
-    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta,
-            String sexo, Date dateNascimento, Date dataCadastro, String planoDeSaude, String numeroCarteirinha,
-            String periodoDeCarencia, Date dataIngreco) {
-        super(nome, cpf, rg, estadoCivil, dataUltimaConsulta, sexo, dateNascimento, dataCadastro);
+    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
+                                   String sexo, Date dateNascimento, Date dataCadastro, PlanoDeSaude planoDeSaude, String numeroCarteirinha,
+                                   String periodoDeCarencia, Date dataIngrecoNoPlano) {
+        super(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro);
         setPlanoDeSaude(planoDeSaude);
         setNumeroCarteirinha(numeroCarteirinha);
         setPeriodoDeCarencia(periodoDeCarencia);
-        setDataIngreco(dataIngreco);
+        setDataIngreco(dataIngrecoNoPlano);
     }
 
-    
+    public int getTipo() {
+        return tipo;
+    }
 
-    
-
+    public boolean setTipo(int tipo) {
+        this.tipo = tipo;
+        return true;
+    }
 }

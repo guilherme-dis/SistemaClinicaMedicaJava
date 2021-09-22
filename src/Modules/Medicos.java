@@ -1,71 +1,72 @@
 package Modules;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 
 
 public class Medicos extends Funcionarios {
-    private String CRM, especialidadesAtendidas;
-    private float salario, valorlim_consulta, valor_consulta;
-    private int nro_consultas;
-
-    //Associates:
-    private Consulta consulta;
-    private Exames exames;
-    private PlanoDeSaude[] planoDeSaude;
+    private String CRM;
+    private String[] especialidadesAtendidas;
+    private double  valorConsulta;
+    private int nroConsultas,valorlimConsulta;
+    //TODO plano de saude tem que ser do tipo PlanoDesaude, = private PlanoDeSaude[] planoDeSaude;
+    private String[] planoDeSaude;
 
     //2.a
-    public Medicos(String cpf, PlanoDeSaude[] planoDeSaude) {
+    public Medicos(String cpf, String[] planoDeSaude) {
         super(cpf);
         this.planoDeSaude = planoDeSaude;
     }
+
     //2.b
     public Medicos() {
     }
+
     //3.h
     public double somaConsultasMes;
-    public void calcularSalario(){
+//TODO calcula salario
+    public void calcularSalario() {
 
     }
-    public boolean resetSomaConsultaMes(){
-        this.somaConsultasMes=0;
+
+    public boolean resetSomaConsultaMes() {
+        this.somaConsultasMes = 0;
         return true;
     }
 
-    public PlanoDeSaude[] getPlanoDeSaude() {
+    public String[] getPlanoDeSaude() {
         return planoDeSaude;
     }
 
-    public boolean setPlanoDeSaude(PlanoDeSaude[] planoDeSaude) {
+    public boolean setPlanoDeSaude(String[] planoDeSaude) {
         this.planoDeSaude = planoDeSaude;
         return true;
     }
 
     //Valor de cada consultaa
-    public float getValor_consulta() {
-        return valor_consulta;
+    public double getValorConsulta() {
+        return valorConsulta;
     }
 
-    public boolean setValor_consulta(float valor_consulta) {
+    public boolean setValorConsulta(double valor_consulta) {
         if (valor_consulta <= 0)
             return false;
         else {
-            this.valor_consulta = valor_consulta;
+            this.valorConsulta = valor_consulta;
             return true;
         }
     }
 
     // Numero de Consultas
-    public int getNro_consultas() {
-        return nro_consultas;
+    public int getNroConsultas() {
+        return nroConsultas;
     }
 
-    public boolean setNro_consultas(int nro_consultas) {
-        if (nro_consultas < 0)
+    public boolean setNroConsultas(int nroConsultas) {
+        if (nroConsultas < 0)
             return false;
         else {
-            this.nro_consultas = nro_consultas;
+            this.nroConsultas = nroConsultas;
             return true;
         }
     }
@@ -84,60 +85,44 @@ public class Medicos extends Funcionarios {
     }
 
     // Especialidade Medico
-    public String getEspecialidadesAtendidas() {
+    public String[] getEspecialidadesAtendidas() {
         return especialidadesAtendidas;
     }
 
-    public boolean setEspecialidadesAtendidas( String especialidadesAtendidas) {
-        if (especialidadesAtendidas.length() > 0) {
-            this.especialidadesAtendidas = especialidadesAtendidas;
-            return true;
-        } else
-            return false;
+    public boolean setEspecialidadesAtendidas(String[] especialidadesAtendidas) {
+        this.especialidadesAtendidas = especialidadesAtendidas;
+        return true;
     }
 
     // Valor limite para cada consulta
-    public float getValorlim_consulta() {
-        return valorlim_consulta;
+    public double getValorlimConsulta() {
+        return valorlimConsulta;
     }
 
-    public boolean setValorlim_consulta(float valorlim_consulta) {
+    public boolean setValorlim_consulta(int valorlim_consulta) {
         if (valorlim_consulta <= 0)
             return false;
         else {
-            this.valorlim_consulta = valorlim_consulta;
+            this.valorlimConsulta = valorlim_consulta;
             return true;
         }
 
     }
 
-    // Salario
-    public float getSalario() {
-        return salario;
-    }
 
-    public void setSalario(float salario) {
-        this.salario = salario;
-
-        if (nro_consultas > valorlim_consulta) {
-            this.salario = nro_consultas * valor_consulta;
-        }
-    }
 
     public Medicos(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                   String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase, String cRM,
-                   String especialidadesAtendidas, float salario, float valorlim_consulta, float valor_consulta,
-                   int nro_consultas, PlanoDeSaude[] planoDeSaude) {
+                   String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
+                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
+                   int nroConsultas, String[] planoDeSaude) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
         setEspecialidadesAtendidas(especialidadesAtendidas);
-        setSalario(salario);
-        setValorlim_consulta(valorlim_consulta);
-        setValor_consulta(valor_consulta);
-        setNro_consultas(nro_consultas);
+        setValorlim_consulta(valorlimConsulta);
+        setValorConsulta(valorConsulta);
+        setNroConsultas(nroConsultas);
         setPlanoDeSaude(planoDeSaude);
     }
-
 
 
 }

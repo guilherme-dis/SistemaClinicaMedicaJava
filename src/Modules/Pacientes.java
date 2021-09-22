@@ -52,10 +52,9 @@ public class Pacientes extends Pessoas{
     }
     //MÉTODOS
 
-    public Pacientes(String nome, String cpf, String rg, String estadoCivil, Date dataUltimaConsulta, String sexo,
+    public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
             Date dateNascimento, Date dataCadastro) {
         super(nome, cpf, rg, estadoCivil);
-        setDataUltimaConsulta(dataUltimaConsulta);
         setSexo(sexo);
         setDateNascimento(dateNascimento);
         setDataCadastro(dataCadastro);

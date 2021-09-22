@@ -2,10 +2,10 @@ package Modules;
 
 import java.util.Date;
 
-public class Funcionarios extends Pessoas {
+public abstract class Funcionarios extends Pessoas {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
-    private float salarioBase;
+    private double salarioBase;
 
     //Associate
     private Consulta[] consultas;
@@ -61,18 +61,18 @@ public class Funcionarios extends Pessoas {
     }
 
     // SALARIO BASE
-    public float getSalarioBase() {
+    public double getSalarioBase() {
         return salarioBase;
     }
 
-    public boolean setSalarioBase(float salarioBase) {
+    public boolean setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
         return true;
     }
 
 
     public Funcionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                        String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, float salarioBase) {
+                        String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase) {
         super(nome, cpf, rg, estadoCivil);
         setUsuario(usuario);
         setSenha(senha);
