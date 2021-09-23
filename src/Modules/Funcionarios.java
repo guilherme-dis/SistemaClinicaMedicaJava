@@ -87,5 +87,5 @@ public abstract class Funcionarios extends Pessoas {
 
     public Funcionarios() {
     }
-
+    public abstract double calcularSalario();
 }

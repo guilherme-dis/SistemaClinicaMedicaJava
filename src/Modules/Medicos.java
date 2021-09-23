@@ -8,6 +8,8 @@ public class Medicos extends Funcionarios {
     private String CRM;
     private String[] especialidadesAtendidas;
     private double  valorConsulta;
+    private double somaConsultasMes;
+    private double bonus;
     private int nroConsultas,valorlimConsulta;
     //TODO plano de saude tem que ser do tipo PlanoDesaude, = private PlanoDeSaude[] planoDeSaude;
     private String[] planoDeSaude;
@@ -23,10 +25,13 @@ public class Medicos extends Funcionarios {
     }
 
     //3.h
-    public double somaConsultasMes;
-//TODO calcula salario
-    public void calcularSalario() {
 
+//TODO calcula salario
+    public double calcularSalario() {
+        if(valorlimConsulta<=nroConsultas){
+            somaConsultasMes+=bonus;
+        }
+        return somaConsultasMes;
     }
 
     public boolean resetSomaConsultaMes() {
@@ -55,6 +60,15 @@ public class Medicos extends Funcionarios {
             this.valorConsulta = valor_consulta;
             return true;
         }
+    }
+
+    public double getSomaConsultasMes() {
+        return somaConsultasMes;
+    }
+
+    public boolean setSomaConsultasMes(double somaConsultasMes) {
+        this.somaConsultasMes = somaConsultasMes;
+        return true;
     }
 
     // Numero de Consultas
@@ -109,12 +123,24 @@ public class Medicos extends Funcionarios {
 
     }
 
+    public double getBonus() {
+        return bonus;
+    }
 
+    public boolean setBonus(double bonus) {
+        this.bonus = bonus;
+        return true;
+    }
+
+    public boolean setValorlimConsulta(int valorlimConsulta) {
+        this.valorlimConsulta = valorlimConsulta;
+        return true;
+    }
 
     public Medicos(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
                    String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
                    String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                   int nroConsultas, String[] planoDeSaude) {
+                   int nroConsultas, String[] planoDeSaude,double bonus) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
         setEspecialidadesAtendidas(especialidadesAtendidas);
@@ -122,6 +148,7 @@ public class Medicos extends Funcionarios {
         setValorConsulta(valorConsulta);
         setNroConsultas(nroConsultas);
         setPlanoDeSaude(planoDeSaude);
+        setBonus(bonus);
     }
 
 

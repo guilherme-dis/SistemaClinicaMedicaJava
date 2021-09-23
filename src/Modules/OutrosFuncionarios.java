@@ -20,7 +20,6 @@ public class OutrosFuncionarios extends Funcionarios {
     //3.i
     public double calcularSalario(){
         if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
-
             return salarioFixo+valorGratificacao;
         }
         return salarioFixo;

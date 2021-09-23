@@ -48,26 +48,24 @@ public class Consulta {
     private static int limiteConsultas;
 
     //4
-    //TODO Quando eu realizo uma consulta, tenho que alterar a dada da última consulta, não posso declarala no construtor.
-    // Atualizar tambem o valor pago na última consulta se não tiver plano de saude.
-    // AUMENTAR O NÚMERO DE OCNSULTAS DOS OUTROS FUNCIONARIOS
-
     public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         outrosFuncionarios.setnroConsultas(getNroConsultas() + 1);
         medico.setNroConsultas(getNroConsultas() + 1);
+
         double soma=0;
         if(paciente instanceof PacienteSemPlanoDeSaude){
             for (int i = 0; i < exameslist.length-1; i++) {
                 soma+=exames.getExameSemPlano(exameslist[i]);
+                medico.setSomaConsultasMes(medico.getSomaConsultasMes()+medico.getValorConsulta());
             }
-            return soma+medico.getValorConsulta();
         }else{
             for (int i = 0; i < exameslist.length-1; i++) {
                 soma+=exames.getExameComPlano(exameslist[i]);
+                medico.setSomaConsultasMes(medico.getSomaConsultasMes()+(medico.getValorConsulta()*0.20));
             }
-            return soma+medico.getValorConsulta();
         }
+        return soma+medico.getValorConsulta();
     }
 
     public Pacientes getPaciente() {
