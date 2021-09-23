@@ -2,7 +2,6 @@ package Modules;
 import java.util.Date;
 
 public class PacienteSemPlanoDeSaude extends Pacientes {
-    private int tipo=1;//apenas para saber se é com ou sem plano
     //TODO procurar saber como funciona o instanceof
     private double descontoEspecial, valorPagoNaUltimaConsulta;
 
@@ -30,12 +29,5 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         setDescontoEspecial(descontoEspecial);
     }
 
-    public int getTipo() {
-        return tipo;
-    }
 
-    public boolean setTipo(int tipo) {
-        this.tipo = tipo;
-        return true;
-    }
 }

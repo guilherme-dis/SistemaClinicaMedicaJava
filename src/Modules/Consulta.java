@@ -8,39 +8,32 @@ public class Consulta {
     private String receita;
 
     //Associates
-    private PacienteComPlanoDeSaude pacienteComPlanoDeSaude;
-    private PacienteSemPlanoDeSaude pacienteSemPlanoDeSaude;
+    private Pacientes paciente;
     private Medicos medico;
     private Exames exames;
+    private String[] exameslist;
     private OutrosFuncionarios outrosFuncionarios;
 
 
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, PacienteComPlanoDeSaude paciente, Medicos medico, Exames exames, OutrosFuncionarios outrosFuncionarios) {
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Medicos medico, Exames exames,String[] exameslist, OutrosFuncionarios outrosFuncionarios) {
         setDataDaConsulta(dataDaConsulta);
         setObservacoes(medicamentos);
         setObservacoes(observacoes);
         setReceita(receita);
-        setPacienteComPlanoDeSaude(paciente);
+        setPaciente(pacientes);
         setMedico(medico);
         setExames(exames);
+        this.exameslist=exameslist;
         setOutrosFuncionarios(outrosFuncionarios);
     }
 
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, PacienteSemPlanoDeSaude paciente, Medicos medico, Exames exames, OutrosFuncionarios outrosFuncionarios) {
-        setDataDaConsulta(dataDaConsulta);
-        setObservacoes(medicamentos);
-        setObservacoes(observacoes);
-        setReceita(receita);
-        setPacienteSemPlanoDeSaude(paciente);
-        setMedico(medico);
-        setExames(exames);
-        setOutrosFuncionarios(outrosFuncionarios);
-    }
+
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
         this.paciente = paciente;
         this.medico = medico;
+
     }
 
     //3.d
@@ -58,16 +51,23 @@ public class Consulta {
     //TODO Quando eu realizo uma consulta, tenho que alterar a dada da última consulta, não posso declarala no construtor.
     // Atualizar tambem o valor pago na última consulta se não tiver plano de saude.
     // AUMENTAR O NÚMERO DE OCNSULTAS DOS OUTROS FUNCIONARIOS
-    public double realizarConsulta() {
 
+    public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         outrosFuncionarios.setnroConsultas(getNroConsultas() + 1);
         medico.setNroConsultas(getNroConsultas() + 1);
-
-        if (paciente)
-
-
-            return medico.getValorConsulta();
+        double soma=0;
+        if(paciente instanceof PacienteSemPlanoDeSaude){
+            for (int i = 0; i < exameslist.length-1; i++) {
+                soma+=exames.getExameSemPlano(exameslist[i]);
+            }
+            return soma+medico.getValorConsulta();
+        }else{
+            for (int i = 0; i < exameslist.length-1; i++) {
+                soma+=exames.getExameComPlano(exameslist[i]);
+            }
+            return soma+medico.getValorConsulta();
+        }
     }
 
     public Pacientes getPaciente() {
@@ -112,23 +112,7 @@ public class Consulta {
         return true;
     }
 
-    public PacienteComPlanoDeSaude getPacienteComPlanoDeSaude() {
-        return pacienteComPlanoDeSaude;
-    }
 
-    public boolean setPacienteComPlanoDeSaude(PacienteComPlanoDeSaude pacienteComPlanoDeSaude) {
-        this.pacienteComPlanoDeSaude = pacienteComPlanoDeSaude;
-        return true;
-    }
-
-    public PacienteSemPlanoDeSaude getPacienteSemPlanoDeSaude() {
-        return pacienteSemPlanoDeSaude;
-    }
-
-    public boolean setPacienteSemPlanoDeSaude(PacienteSemPlanoDeSaude pacienteSemPlanoDeSaude) {
-        this.pacienteSemPlanoDeSaude = pacienteSemPlanoDeSaude;
-        return true;
-    }
 
     public Exames getExames() {
         return exames;

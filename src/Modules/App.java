@@ -51,18 +51,12 @@ public class App {
 
         //Criando a consulta
 
-        Exames exames1=new Exames();
-        exames1.setExame("Hemograma", 0, 20);
-        exames1.setExame("Glicemia", 0, 40);
-        exames1.setExame("Colesterol", 0, 40);
-        exames1.setExame("Transaminases ", 0, 100);
-        Exames exames2=new Exames();
-        exames2.setExame("Hemograma", 0, 20);
-        exames2.setExame("Colesterol", 0, 45);
-        exames2.setExame("Transaminases ", 0, 100);
-        Consulta consulta =new Consulta(date,"","","",Paciente,medico,exames1,outro);
-        Consulta consulta2 =new Consulta(date,"","","",Paciente2,medico,exames2,outro);
+        String[] exames1= new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
+        String[] exames2=new String[]{"Hemograma","Colesterol","Transaminases "};
+        Consulta consulta =new Consulta(date,"","","",Paciente,medico,exames,exames1,outro);
+        Consulta consulta2 =new Consulta(date,"","","",Paciente2,medico,exames,exames2,outro);
 
-
+        System.out.println(consulta.realizarConsulta());
+        System.out.println(consulta2.realizarConsulta());
     }
 }
