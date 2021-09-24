@@ -4,6 +4,8 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
-/.idea/
-/.xml
-/out/
+/dataSources/
+/dataSources.local.xml
+.idea
+TrabalhoFinalPOO1.iml
+out
