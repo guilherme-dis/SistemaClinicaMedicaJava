@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b467720f-32ef-4cdc-97de-12ae510705ae" name="Changes" comment="Objetivo 5 da lista finalizado" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1yQjvhpSSIxCEZ8GJOSWDCc3KBh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Modules.App" />
+      <module name="TrabalhoFinalPOO1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Modules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b467720f-32ef-4cdc-97de-12ae510705ae" name="Changes" comment="" />
+      <created>1632190939454</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632190939454</updated>
+      <workItem from="1632190940785" duration="455000" />
+      <workItem from="1632191423271" duration="2757000" />
+      <workItem from="1632263008313" duration="537000" />
+      <workItem from="1632263580288" duration="52000" />
+      <workItem from="1632263662446" duration="10240000" />
+      <workItem from="1632350210578" duration="499000" />
+      <workItem from="1632350747926" duration="7055000" />
+      <workItem from="1632364112868" duration="189000" />
+      <workItem from="1632410369227" duration="299000" />
+      <workItem from="1632522047015" duration="237000" />
+      <workItem from="1632522322770" duration="2513000" />
+      <workItem from="1632588463778" duration="1406000" />
+    </task>
+    <task id="LOCAL-00001" summary="Realizar Consulta finalizado">
+      <created>1632362454746</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632362454746</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Metodo calcula salário do médico">
+      <created>1632363390727</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632363390727</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Testando o .gitignore">
+      <created>1632364156925</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632364156925</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Testando o .gitignore">
+      <created>1632364273086</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632364273086</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Testando o .gitignore">
+      <created>1632522226100</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632522226100</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Testando o .gitignore, espero que o último">
+      <created>1632522523602</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632522523602</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Objetivo 5 da lista finalizado">
+      <created>1632589686665</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632589686665</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Realizar Consulta finalizado" />
+    <MESSAGE value="Metodo calcula salário do médico" />
+    <MESSAGE value="Testando o .gitignore" />
+    <MESSAGE value="Testando o .gitignore, espero que o último" />
+    <MESSAGE value="Objetivo 5 da lista finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Objetivo 5 da lista finalizado" />
+  </component>
+</project>

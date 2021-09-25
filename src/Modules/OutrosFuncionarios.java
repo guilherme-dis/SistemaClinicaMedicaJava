@@ -8,6 +8,7 @@ public class OutrosFuncionarios extends Funcionarios {
     private int nroConsultas;
     private double valorlimConsulta;
 
+
     //3.f
     private static double valorASerPagoDeGratificacao;
     public static double getValorASerPagoDeGratificacao() {
@@ -20,11 +21,21 @@ public class OutrosFuncionarios extends Funcionarios {
     //3.i
     public double calcularSalario(){
         if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
-
             return salarioFixo+valorGratificacao;
         }
         return salarioFixo;
     }
+
+    @Override
+    public void loginClinica() {
+
+    }
+
+    @Override
+    public void logoffClinica() {
+
+    }
+
 
     // Valor de gratificacao
     public double getvalorGratificacao() {

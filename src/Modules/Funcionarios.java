@@ -6,6 +6,8 @@ public abstract class Funcionarios extends Pessoas {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
     private double salarioBase;
+    private Date tempoDeTrabalho;
+
 
     //Associate
     private Consulta[] consultas;
@@ -85,7 +87,16 @@ public abstract class Funcionarios extends Pessoas {
         super(cpf);
     }
 
+
+
     public Funcionarios() {
     }
+    //5.b
+    public abstract double calcularSalario();
+    //5.c
+    //Sempre que o usuário fizer o login, vai quardar em uma variavel a hora que logou, e quando sair, faz a subtração de quanto tempo ficou, joga esse valor para o banco de horas, e o calcular
+    //salario vai dar um bonus dependendo de quantas horas ficou
+    public abstract void loginClinica();
+    public abstract void logoffClinica();
 
 }
