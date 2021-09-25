@@ -19,4 +19,12 @@ public class Exames {
         mapClienteComPlano.put(nomeExame, comPlano);
         mapClienteSemPlano.put(nomeExame, semPlano);
     }
+
+    @Override
+    public String toString() {
+        return "Exames{" +
+                "mapClienteComPlano=" + mapClienteComPlano +
+                ", mapClienteSemPlano=" + mapClienteSemPlano +
+                '}';
+    }
 }

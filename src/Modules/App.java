@@ -7,7 +7,7 @@ import java.util.Date;
 public class App {
 
     public static void main(String[] args) {
-
+        Date date;
 
         //Cadastro dos exames
         Exames exames = new Exames();
@@ -30,23 +30,23 @@ public class App {
 
         //Cadastro de pacientes
         DadosPacientes pacientes = new DadosPacientes();
-        Date date = new Date();
+        date = new Date();
         pacientes.cadastrar(PacienteComPlanoDeSaude.cadastroPacienteComPlanoDeSaude("Guilherme", "70122924665", "11111", "Solteiro", "Masculino", date, date, planoDeSaude[0], "", "", date));
         pacientes.cadastrar(PacienteSemPlanoDeSaude.cadastroPacienteSemPlanoDeSaude("Guilherme", "70122924665", "11111", "Solteiro", "Masculino", date, date, 50f));
 
 
-        //Cadastro de outros funcionários.
-        ArrayList<OutrosFuncionarios> outrosFuncionariosArrayList = new ArrayList<>();
-        OutrosFuncionarios outro = new OutrosFuncionarios("Guilherme", "70122924665", "11111", "Solteiro", "", "", "", date, 1000, 1000, 100, "Atendente", 0, 10);
-        outrosFuncionariosArrayList.add(outro);
+
+        //Cadastro de funcionarios.
+        date = new Date();
+        DadosFuncionarios funcionarios = new DadosFuncionarios();
+        //Funcionarios
+        funcionarios.cadastrar(OutrosFuncionarios.cadastrar("Guilherme", "70122924665", "11111", "Solteiro", "", "", "", date, 1000, 1000, 100, "Atendente", 0, 10));
+        //Medicos
+        funcionarios.cadastrar(Medicos.cadastrarMedico("Guilherme", "70122924665", "11111", "Solteiro", "", "", "", date, 1000, "", new String[]{"sangue", "Hepatite"}, 10, 100, 0, new String[]{"Hemograma", "Covid"}, 50));
 
 
-        //Cadastro de médicos
-        ArrayList<Medicos> medicosArrayList = new ArrayList<>();
-        String[] especialidades = {"sangue", "Hepatite"};
-        String[] plano = {"Hemograma", "Covid"};
-        Medicos medico = new Medicos("Guilherme", "70122924665", "11111", "Solteiro", "", "", "", date, 1000, "", especialidades, 10, 100, 0, plano, 50);
-        medicosArrayList.add(medico);
+
+
 
         //Criando a consulta
         String[] exames1 = new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};

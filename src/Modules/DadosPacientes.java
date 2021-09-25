@@ -17,9 +17,7 @@ class DadosPacientes {
     }
 
     public void listar() {
-        for (Pacientes objeto : this.pacientesArrayList) {
-            System.out.println(objeto);
-        }
+        for (Pacientes objeto : this.pacientesArrayList) System.out.println(objeto);
     }
 
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
@@ -40,8 +38,6 @@ class DadosPacientes {
         if (c != null) {
             this.pacientesArrayList.remove(c);
             return true;
-        } else {
-            return false;
-        }
+        } else return false;
     }
 }
