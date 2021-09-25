@@ -3,7 +3,6 @@ package Modules;
 import java.util.Date;
 
 public class PacienteComPlanoDeSaude extends Pacientes {
-    private int tipo=2;
     private PlanoDeSaude planoDeSaude;
     private String numeroCarteirinha, periodoDeCarencia;
     private Date dataIngrecoNoPlano;
@@ -55,12 +54,10 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         setDataIngreco(dataIngrecoNoPlano);
     }
 
-    public int getTipo() {
-        return tipo;
-    }
+    public static Pacientes cadastroPacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
+                                                     String sexo, Date dateNascimento, Date dataCadastro, PlanoDeSaude planoDeSaude, String numeroCarteirinha,
+                                                     String periodoDeCarencia, Date dataIngrecoNoPlano) {
+        return new PacienteComPlanoDeSaude(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro, planoDeSaude, numeroCarteirinha, periodoDeCarencia, dataIngrecoNoPlano);
 
-    public boolean setTipo(int tipo) {
-        this.tipo = tipo;
-        return true;
     }
 }
