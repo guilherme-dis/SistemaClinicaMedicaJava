@@ -92,6 +92,17 @@ public class Pessoas {
         setEstadoCivil(estadoCivil);
     }
 
+    @Override
+    public String toString() {
+        return "Pessoas{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", rg='" + rg + '\'' +
+                ", estadoCivil=" + estadoCivil +
+                ", endereco=" + endereco +
+                '}';
+    }
+
     public Pessoas(String cpf) {
         this.cpf = cpf;
     }

@@ -60,4 +60,14 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         return new PacienteComPlanoDeSaude(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro, planoDeSaude, numeroCarteirinha, periodoDeCarencia, dataIngrecoNoPlano);
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"PacienteComPlanoDeSaude{" +
+                "planoDeSaude=" + planoDeSaude +
+                ", numeroCarteirinha='" + numeroCarteirinha + '\'' +
+                ", periodoDeCarencia='" + periodoDeCarencia + '\'' +
+                ", dataIngrecoNoPlano=" + dataIngrecoNoPlano +
+                '}';
+    }
 }

@@ -48,7 +48,8 @@ public class Consulta {
     private static int limiteConsultas;
 
     //4
-    public double realizarConsulta() {
+
+    /*public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         outrosFuncionarios.setnroConsultas(getNroConsultas() + 1);
         medico.setNroConsultas(getNroConsultas() + 1);
@@ -66,7 +67,7 @@ public class Consulta {
             }
         }
         return soma+medico.getValorConsulta();
-    }
+    }*/
 
     public Pacientes getPaciente() {
         return paciente;
