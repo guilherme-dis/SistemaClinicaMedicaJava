@@ -34,6 +34,17 @@ public class Medicos extends Funcionarios {
         return somaConsultasMes;
     }
 
+    @Override
+    public void loginClinica() {
+
+    }
+
+    @Override
+    public void logoffClinica() {
+
+    }
+
+
     public boolean resetSomaConsultaMes() {
         this.somaConsultasMes = 0;
         return true;

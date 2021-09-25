@@ -48,9 +48,9 @@ public class App {
         String[] especialidades={"sangue","Hepatite" };
         String[] plano={"Hemograma","Covid" };
         Medicos medico=new Medicos("Guilherme", "70122924665", "11111", "Solteiro","","","",date,1000,"",especialidades,10,100,0,plano,50);
+        medicosArrayList.add(medico);
 
         //Criando a consulta
-
         String[] exames1= new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
         String[] exames2=new String[]{"Hemograma","Colesterol","Transaminases "};
         Consulta consulta =new Consulta(date,"","","",Paciente,medico,exames,exames1,outro);
