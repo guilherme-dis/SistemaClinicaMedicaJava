@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b467720f-32ef-4cdc-97de-12ae510705ae" name="Changes" comment="Objetivo 5 da lista finalizado" />
+    <list default="true" id="b467720f-32ef-4cdc-97de-12ae510705ae" name="Changes" comment="Implementação da classe DadosPacientes.java">
+      <change afterPath="$PROJECT_DIR$/src/Modules/DadosConsulta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modules/DadosFuncionarios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modules/DadosPacientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrabalhoFinalPOO1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TrabalhoFinalPOO1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/PacienteComPlanoDeSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/PacienteComPlanoDeSaude.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/PacienteSemPlanoDeSaude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/PacienteSemPlanoDeSaude.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Pacientes.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1yQjvhpSSIxCEZ8GJOSWDCc3KBh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -61,7 +85,7 @@
       <workItem from="1632410369227" duration="299000" />
       <workItem from="1632522047015" duration="237000" />
       <workItem from="1632522322770" duration="2513000" />
-      <workItem from="1632588463778" duration="1406000" />
+      <workItem from="1632588463778" duration="6840000" />
     </task>
     <task id="LOCAL-00001" summary="Realizar Consulta finalizado">
       <created>1632362454746</created>
@@ -136,6 +160,8 @@
     <MESSAGE value="Testando o .gitignore" />
     <MESSAGE value="Testando o .gitignore, espero que o último" />
     <MESSAGE value="Objetivo 5 da lista finalizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Objetivo 5 da lista finalizado" />
+    <MESSAGE value="Implementação da classe DadosPacientes.jav" />
+    <MESSAGE value="Implementação da classe DadosPacientes.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementação da classe DadosPacientes.java" />
   </component>
 </project>

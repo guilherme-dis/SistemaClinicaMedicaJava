@@ -1,4 +1,5 @@
 package Modules;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Pacientes extends Pessoas{
@@ -50,8 +51,7 @@ public class Pacientes extends Pessoas{
         this.dataCadastro = dataCadastro;
         return true;
     }
-    //MÉTODOS
-
+    //CONSTRUTOR
     public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
             Date dateNascimento, Date dataCadastro) {
         super(nome, cpf, rg, estadoCivil);
@@ -59,7 +59,15 @@ public class Pacientes extends Pessoas{
         setDateNascimento(dateNascimento);
         setDataCadastro(dataCadastro);
     }
-
-    
-
+    @Override
+    public String toString() {
+        return "Pacientes{" +
+                "dataUltimaConsulta=" + dataUltimaConsulta +
+                ", sexo='" + sexo + '\'' +
+                ", dateNascimento=" + dateNascimento +
+                ", dataCadastro=" + dataCadastro +
+                ", funcionarios=" + Arrays.toString(funcionarios) +
+                ", consulta=" + consulta +
+                '}';
+    }
 }
