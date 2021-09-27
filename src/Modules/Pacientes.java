@@ -62,7 +62,7 @@ public class Pacientes extends Pessoas{
 
     @Override
     public String toString() {
-        return super.toString()+"Pacientes{" +
+        return super.toString()+" Pacientes{" +
                 "dataUltimaConsulta=" + dataUltimaConsulta +
                 ", sexo='" + sexo + '\'' +
                 ", dateNascimento=" + dateNascimento +

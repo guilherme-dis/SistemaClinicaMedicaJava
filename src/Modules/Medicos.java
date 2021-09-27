@@ -1,6 +1,7 @@
 package Modules;
 
 
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -173,5 +174,17 @@ public class Medicos extends Funcionarios {
 
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString()+" Medicos{" +
+                "CRM='" + CRM + '\'' +
+                ", especialidadesAtendidas=" + Arrays.toString(especialidadesAtendidas) +
+                ", valorConsulta=" + valorConsulta +
+                ", somaConsultasMes=" + somaConsultasMes +
+                ", bonus=" + bonus +
+                ", nroConsultas=" + nroConsultas +
+                ", valorlimConsulta=" + valorlimConsulta +
+                ", planoDeSaude=" + Arrays.toString(planoDeSaude) +
+                '}';
+    }
 }

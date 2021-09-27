@@ -10,14 +10,11 @@ public class DadosFuncionarios {
     }
 
     public void listar() {
-        //for (Funcionarios objeto : this.funcionariosArrayList) System.out.println(objeto);
-        this.funcionariosArrayList.forEach(System.out::println);
+        for (Funcionarios objeto : this.funcionariosArrayList) System.out.println(objeto);
     }
 
     //este método retorna o objeto Funcionaios caso encontrado, ou null, caso não encontrado
     public Funcionarios buscar(String cpf) {//pode-se usar também int
-        return this.funcionariosArrayList.stream().filter(objeto -> objeto.getCpf().equals(cpf)).findFirst().orElse(null);
-        /*
         Funcionarios c = null;
         for (Funcionarios objeto : this.funcionariosArrayList) {
             if (objeto.getCpf().equals(cpf)) {
@@ -25,7 +22,7 @@ public class DadosFuncionarios {
                 break;
             }
         }
-        return c;*/
+        return c;
     }
 
     //este método usa o método buscar já implementado

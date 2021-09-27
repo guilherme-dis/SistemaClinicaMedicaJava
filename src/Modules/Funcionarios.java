@@ -102,7 +102,7 @@ public abstract class Funcionarios extends Pessoas {
 
     @Override
     public String toString() {
-        return super.toString()+"Funcionarios{" +
+        return super.toString()+" Funcionarios{" +
                 "usuario='" + usuario + '\'' +
                 ", senha='" + senha + '\'' +
                 ", NumeroCarteiraDeTrabalho='" + NumeroCarteiraDeTrabalho + '\'' +

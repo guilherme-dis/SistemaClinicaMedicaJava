@@ -40,6 +40,16 @@ public class OutrosFuncionarios extends Funcionarios {
 
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+"OutrosFuncionarios{" +
+                "salarioFixo=" + salarioFixo +
+                ", valorGratificacao=" + valorGratificacao +
+                ", cargo='" + cargo + '\'' +
+                ", nroConsultas=" + nroConsultas +
+                ", valorlimConsulta=" + valorlimConsulta +
+                '}';
+    }
 
     // Valor de gratificacao
     public double getvalorGratificacao() {
