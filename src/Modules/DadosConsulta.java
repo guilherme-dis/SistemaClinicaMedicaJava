@@ -22,6 +22,7 @@ public class DadosConsulta {
                 break;
             }
         }
+        //System.err.println("Paciente não encontrado!");
         return c;
     }
 

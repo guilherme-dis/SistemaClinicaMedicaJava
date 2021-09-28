@@ -42,6 +42,7 @@ public class Pessoas {
             this.cpf = cpf;
             return true;
         } else
+            System.err.println("Não foi possível cadastrar o cpf");
             return false;
     }
 

@@ -51,8 +51,6 @@ public class App {
         date = new Date();
 
 
-
-
         consulta.cadastrar(Consulta.cadastrar(date, "", "", "", pacientes.buscar("70122924665"), funcionarios.buscar("13924830002"), exames1, exames, funcionarios.buscar("63199245005")));
         consulta.cadastrar(Consulta.cadastrar(date, "", "", "", pacientes.buscar("40778470016"), funcionarios.buscar("13924830002"), exames1, exames, funcionarios.buscar("63199245005")));
 
