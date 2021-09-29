@@ -1,5 +1,6 @@
 package Modules;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public abstract class Funcionarios extends Pessoas {
@@ -99,4 +100,16 @@ public abstract class Funcionarios extends Pessoas {
     public abstract void loginClinica();
     public abstract void logoffClinica();
 
+    @Override
+    public String toString() {
+        return super.toString()+" Funcionarios{" +
+                "usuario='" + usuario + '\'' +
+                ", senha='" + senha + '\'' +
+                ", NumeroCarteiraDeTrabalho='" + NumeroCarteiraDeTrabalho + '\'' +
+                ", dataAdmissaoNaClinica=" + dataAdmissaoNaClinica +
+                ", salarioBase=" + salarioBase +
+                ", tempoDeTrabalho=" + tempoDeTrabalho +
+                ", consultas=" + Arrays.toString(consultas) +
+                '}';
+    }
 }

@@ -42,6 +42,7 @@ public class Pessoas {
             this.cpf = cpf;
             return true;
         } else
+            System.err.println("Não foi possível cadastrar o cpf");
             return false;
     }
 
@@ -90,6 +91,17 @@ public class Pessoas {
         setCpf(cpf);
         setRg(rg);
         setEstadoCivil(estadoCivil);
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoas{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", rg='" + rg + '\'' +
+                ", estadoCivil=" + estadoCivil +
+                ", endereco=" + endereco +
+                '}';
     }
 
     public Pessoas(String cpf) {

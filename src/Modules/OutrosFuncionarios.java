@@ -1,4 +1,5 @@
 package Modules;
+
 import java.util.Date;
 
 public class OutrosFuncionarios extends Funcionarios {
@@ -11,17 +12,20 @@ public class OutrosFuncionarios extends Funcionarios {
 
     //3.f
     private static double valorASerPagoDeGratificacao;
+
     public static double getValorASerPagoDeGratificacao() {
         return valorASerPagoDeGratificacao;
     }
+
     public static boolean setValorASerPagoDeGratificacao(double valorASerPagoDeGratificacao) {
         OutrosFuncionarios.valorASerPagoDeGratificacao = valorASerPagoDeGratificacao;
         return true;
     }
+
     //3.i
-    public double calcularSalario(){
-        if(Consulta.getLimiteConsultas()<=Consulta.getNroConsultas()){
-            return salarioFixo+valorGratificacao;
+    public double calcularSalario() {
+        if (Consulta.getLimiteConsultas() <= Consulta.getNroConsultas()) {
+            return salarioFixo + valorGratificacao;
         }
         return salarioFixo;
     }
@@ -36,6 +40,16 @@ public class OutrosFuncionarios extends Funcionarios {
 
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+"OutrosFuncionarios{" +
+                "salarioFixo=" + salarioFixo +
+                ", valorGratificacao=" + valorGratificacao +
+                ", cargo='" + cargo + '\'' +
+                ", nroConsultas=" + nroConsultas +
+                ", valorlimConsulta=" + valorlimConsulta +
+                '}';
+    }
 
     // Valor de gratificacao
     public double getvalorGratificacao() {
@@ -43,14 +57,22 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-            String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
-            double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
+                              String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
+                              double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         setsalarioFixo(salarioFixo);
         setvalorGratificacao(valorGratificacao);
         setCargo(cargo);
         setnroConsultas(nroConsultas);
         setValorlim_consulta(valorlimConsulta);
+    }
+
+    public static OutrosFuncionarios cadastrar(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+                                               String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
+                                               double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
+        return new OutrosFuncionarios(nome, cpf, rg, estadoCivil, usuario, senha,
+                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, salarioFixo,
+                valorGratificacao, cargo, nroConsultas, valorlimConsulta);
     }
 
     public boolean setvalorGratificacao(double valorGratificacao) {

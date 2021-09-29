@@ -1,22 +1,60 @@
 package Modules;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Exames {
-    private final Map<String, Double> mapClienteComPlano = new HashMap<>();
-    private final Map<String, Double> mapClienteSemPlano = new HashMap<>();
+    private String nome;
+    private double semPlano, comPlano;
 
-    public Double getExameComPlano(String nomeExame) {
-        return mapClienteComPlano.get(nomeExame);
+    public Exames(String nome, double semPlano, double comPlano) {
+        this.nome = nome;
+        this.semPlano = semPlano;
+        this.comPlano = comPlano;
     }
 
-    public Double getExameSemPlano(String nomeExame) {
-        return mapClienteSemPlano.get(nomeExame);
+    public static Exames cadastrar(String nome, double semPlano, double comPlano) {
+        return new Exames(nome, semPlano, comPlano);
     }
 
-    public void setExame(String nomeExame, double comPlano, double semPlano) {
-        mapClienteComPlano.put(nomeExame, comPlano);
-        mapClienteSemPlano.put(nomeExame, semPlano);
+    public String getNome() {
+        return nome;
+    }
+
+    public boolean setNome(String nome) {
+        this.nome = nome;
+        return true;
+    }
+
+    public static double valorComPlano(Exames e) {
+        return e.getComPlano();
+    }
+
+    public static double valorSemPlano(Exames e) {
+        return e.getSemPlano();
+    }
+
+    public double getSemPlano() {
+        return semPlano;
+    }
+
+    public boolean setSemPlano(double semPlano) {
+        this.semPlano = semPlano;
+        return true;
+    }
+
+    public double getComPlano() {
+        return comPlano;
+    }
+
+    public boolean setComPlano(double comPlano) {
+        this.comPlano = comPlano;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Exames{" +
+                "nome='" + nome + '\'' +
+                ", semPlano=" + semPlano +
+                ", comPlano=" + comPlano +
+                '}';
     }
 }

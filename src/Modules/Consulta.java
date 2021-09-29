@@ -1,21 +1,21 @@
 package Modules;
 
+import DataClass.DadosExames;
+
+import java.util.Arrays;
 import java.util.Date;
 
 public class Consulta {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
-
+    private String[] exames;
     //Associates
     private Pacientes paciente;
-    private Medicos medico;
-    private Exames exames;
-    private String[] exameslist;
-    private OutrosFuncionarios outrosFuncionarios;
+    private Funcionarios medico, outrosFuncionarios;
+    private DadosExames exameslist;
 
-
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Medicos medico, Exames exames,String[] exameslist, OutrosFuncionarios outrosFuncionarios) {
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
         setDataDaConsulta(dataDaConsulta);
         setObservacoes(medicamentos);
         setObservacoes(observacoes);
@@ -23,10 +23,13 @@ public class Consulta {
         setPaciente(pacientes);
         setMedico(medico);
         setExames(exames);
-        this.exameslist=exameslist;
+        this.exameslist = exameslist;
         setOutrosFuncionarios(outrosFuncionarios);
     }
 
+    public static Consulta cadastrar(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
+        return new Consulta(dataDaConsulta, medicamentos, observacoes, receita, pacientes, medico, exames, exameslist, outrosFuncionarios);
+    }
 
 
     //2.c
@@ -48,24 +51,25 @@ public class Consulta {
     private static int limiteConsultas;
 
     //4
+
     public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
-        outrosFuncionarios.setnroConsultas(getNroConsultas() + 1);
-        medico.setNroConsultas(getNroConsultas() + 1);
+        ((OutrosFuncionarios) outrosFuncionarios).setnroConsultas(((OutrosFuncionarios) outrosFuncionarios).getNroConsultas() + 1);
+        ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
 
-        double soma=0;
-        if(paciente instanceof PacienteSemPlanoDeSaude){
-            for (int i = 0; i < exameslist.length-1; i++) {
-                soma+=exames.getExameSemPlano(exameslist[i]);
-                medico.setSomaConsultasMes(medico.getSomaConsultasMes()+medico.getValorConsulta());
+        double soma = 0;
+        if (paciente instanceof PacienteSemPlanoDeSaude) {
+            for (String exame : exames) {
+                soma += Exames.valorSemPlano(exameslist.buscar(exame));
+                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
-        }else{
-            for (int i = 0; i < exameslist.length-1; i++) {
-                soma+=exames.getExameComPlano(exameslist[i]);
-                medico.setSomaConsultasMes(medico.getSomaConsultasMes()+(medico.getValorConsulta()*0.20));
+        } else {
+            for (String exame : exames) {
+                soma += Exames.valorComPlano(exameslist.buscar(exame));
+                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
         }
-        return soma+medico.getValorConsulta();
+        return soma + ((Medicos) medico).getValorConsulta();
     }
 
     public Pacientes getPaciente() {
@@ -76,12 +80,14 @@ public class Consulta {
         this.paciente = paciente;
     }
 
-    public Medicos getMedico() {
-        return medico;
+
+    public String[] getExames() {
+        return exames;
     }
 
-    public void setMedico(Medicos medico) {
-        this.medico = medico;
+    public boolean setExames(String[] exames) {
+        this.exames = exames;
+        return true;
     }
 
     public static int getNroConsultas() {
@@ -111,18 +117,22 @@ public class Consulta {
     }
 
 
-
-    public Exames getExames() {
-        return exames;
+    public Funcionarios getMedico() {
+        return medico;
     }
 
-    public boolean setExames(Exames exames) {
-        this.exames = exames;
+    public boolean setMedico(Funcionarios medico) {
+        this.medico = medico;
         return true;
     }
 
-    public OutrosFuncionarios getOutrosFuncionarios() {
+    public Funcionarios getOutrosFuncionarios() {
         return outrosFuncionarios;
+    }
+
+    public boolean setOutrosFuncionarios(Funcionarios outrosFuncionarios) {
+        this.outrosFuncionarios = outrosFuncionarios;
+        return true;
     }
 
     public boolean setOutrosFuncionarios(OutrosFuncionarios outrosFuncionarios) {
@@ -157,5 +167,17 @@ public class Consulta {
         return true;
     }
 
-
+    @Override
+    public String toString() {
+        return "Consulta{" +
+                "dataDaConsulta=" + dataDaConsulta +
+                ", medicamentos='" + medicamentos + '\'' +
+                ", observacoes='" + observacoes + '\'' +
+                ", receita='" + receita + '\'' +
+                ", exames=" + Arrays.toString(exames) +
+                ", paciente=" + paciente +
+                ", medico=" + medico +
+                ", outrosFuncionarios=" + outrosFuncionarios +
+                '}';
+    }
 }

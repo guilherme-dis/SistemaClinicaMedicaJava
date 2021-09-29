@@ -27,6 +27,17 @@ public class PlanoDeSaude  {
         setNome(nome);
         setCnpj(cnpj);
     }
+    public static PlanoDeSaude cadastrar(String nome, String cnpj){
+        return new PlanoDeSaude(nome,cnpj);
+    }
+
+    @Override
+    public String toString() {
+        return "PlanoDeSaude{" +
+                "nome='" + nome + '\'' +
+                ", CNPJ='" + CNPJ + '\'' +
+                '}';
+    }
 
 
 }

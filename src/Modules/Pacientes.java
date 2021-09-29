@@ -59,9 +59,10 @@ public class Pacientes extends Pessoas{
         setDateNascimento(dateNascimento);
         setDataCadastro(dataCadastro);
     }
+
     @Override
     public String toString() {
-        return "Pacientes{" +
+        return super.toString()+" Pacientes{" +
                 "dataUltimaConsulta=" + dataUltimaConsulta +
                 ", sexo='" + sexo + '\'' +
                 ", dateNascimento=" + dateNascimento +

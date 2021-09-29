@@ -1,16 +1,17 @@
 package Modules;
 
 
+import java.util.Arrays;
 import java.util.Date;
 
 
 public class Medicos extends Funcionarios {
     private String CRM;
     private String[] especialidadesAtendidas;
-    private double  valorConsulta;
+    private double valorConsulta;
     private double somaConsultasMes;
     private double bonus;
-    private int nroConsultas,valorlimConsulta;
+    private int nroConsultas, valorlimConsulta;
     //TODO plano de saude tem que ser do tipo PlanoDesaude, = private PlanoDeSaude[] planoDeSaude;
     private String[] planoDeSaude;
 
@@ -26,10 +27,10 @@ public class Medicos extends Funcionarios {
 
     //3.h
 
-//TODO calcula salario
+    //TODO calcula salario
     public double calcularSalario() {
-        if(valorlimConsulta<=nroConsultas){
-            somaConsultasMes+=bonus;
+        if (valorlimConsulta <= nroConsultas) {
+            somaConsultasMes += bonus;
         }
         return somaConsultasMes;
     }
@@ -151,7 +152,7 @@ public class Medicos extends Funcionarios {
     public Medicos(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
                    String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
                    String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                   int nroConsultas, String[] planoDeSaude,double bonus) {
+                   int nroConsultas, String[] planoDeSaude, double bonus) {
         super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
         setEspecialidadesAtendidas(especialidadesAtendidas);
@@ -162,5 +163,28 @@ public class Medicos extends Funcionarios {
         setBonus(bonus);
     }
 
+    public static Medicos cadastrarMedico(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+                                          String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
+                                          String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
+                                          int nroConsultas, String[] planoDeSaude, double bonus) {
+        return new Medicos(nome, cpf, rg, estadoCivil, usuario, senha,
+                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, cRM,
+                especialidadesAtendidas, valorlimConsulta, valorConsulta,
+                nroConsultas, planoDeSaude, bonus);
 
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" Medicos{" +
+                "CRM='" + CRM + '\'' +
+                ", especialidadesAtendidas=" + Arrays.toString(especialidadesAtendidas) +
+                ", valorConsulta=" + valorConsulta +
+                ", somaConsultasMes=" + somaConsultasMes +
+                ", bonus=" + bonus +
+                ", nroConsultas=" + nroConsultas +
+                ", valorlimConsulta=" + valorlimConsulta +
+                ", planoDeSaude=" + Arrays.toString(planoDeSaude) +
+                '}';
+    }
 }

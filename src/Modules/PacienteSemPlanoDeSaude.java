@@ -35,4 +35,12 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         return new PacienteSemPlanoDeSaude(nome, cpf, rg, estadoCivil,
                 sexo, dateNascimento, dataCadastro, descontoEspecial);
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"PacienteSemPlanoDeSaude{" +
+                "descontoEspecial=" + descontoEspecial +
+                ", valorPagoNaUltimaConsulta=" + valorPagoNaUltimaConsulta +
+                '}';
+    }
 }
