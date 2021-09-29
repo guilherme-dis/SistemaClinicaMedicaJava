@@ -1,4 +1,6 @@
-package Modules;
+package DataClass;
+
+import Modules.PlanoDeSaude;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-package Modules;
+package DataClass;
+
+import Modules.Consulta;
 
 import java.util.ArrayList;
 

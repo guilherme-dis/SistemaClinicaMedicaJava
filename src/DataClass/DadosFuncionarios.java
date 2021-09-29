@@ -1,4 +1,6 @@
-package Modules;
+package DataClass;
+
+import Modules.Funcionarios;
 
 import java.util.ArrayList;
 

@@ -1,10 +1,12 @@
 package Modules;
 //TODO IMPLEMENTAR O ENDEREÇO
 
-import java.util.ArrayList;
+import DataClass.*;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class App {
+public class App implements Serializable {
 
     public static void main(String[] args) {
         Date date;
@@ -34,6 +36,7 @@ public class App {
         pacientes.cadastrar(PacienteSemPlanoDeSaude.cadastroPacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));
 
 
+
         //Cadastro de funcionarios.
         date = new Date();
         DadosFuncionarios funcionarios = new DadosFuncionarios();
@@ -46,13 +49,13 @@ public class App {
 
         //Cadastro consulta
         String[] exames1 = new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
-        String[] exames2 = new String[]{"Hemograma", "Colesterol", "Transaminases "};
+        String[] exames2 = new String[]{"Hemograma", "Colesterol", "Transaminases"};
         DadosConsulta consulta = new DadosConsulta();
         date = new Date();
 
 
         consulta.cadastrar(Consulta.cadastrar(date, "", "", "", pacientes.buscar("70122924665"), funcionarios.buscar("13924830002"), exames1, exames, funcionarios.buscar("63199245005")));
-        consulta.cadastrar(Consulta.cadastrar(date, "", "", "", pacientes.buscar("40778470016"), funcionarios.buscar("13924830002"), exames1, exames, funcionarios.buscar("63199245005")));
+        consulta.cadastrar(Consulta.cadastrar(date, "", "", "", pacientes.buscar("40778470016"), funcionarios.buscar("13924830002"), exames2, exames, funcionarios.buscar("63199245005")));
 
 
         System.out.println(consulta.buscar("70122924665").realizarConsulta());

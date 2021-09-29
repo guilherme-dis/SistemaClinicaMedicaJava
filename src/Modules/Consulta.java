@@ -1,5 +1,7 @@
 package Modules;
 
+import DataClass.DadosExames;
+
 import java.util.Arrays;
 import java.util.Date;
 

@@ -1,15 +1,11 @@
-package Modules;
-/*Crie classes especiais capazes de manter os dados gerados no sistema. Por
-manter, entende-se: cadastrar, consultar e excluir. Para isto, crie as classes “ DadosPacientes ” , “ DadosFuncionarios ” , “DadosConsulta”, etc.. Estas
-classes serão responsáveis por encapsular o acesso a cada tipo de dado
-específico. Para isto, estas classes devem implementar um ArrayList privado
-para armazenar a informação, e métodos públicos para permitir o acesso à
-informação (inserir um novo objeto, buscar um objeto, excluir um objeto, etc.). Os objetos de dados deverão ser criados apenas uma vez na classe principal e
-utilizados ao longo da execução da */
+package DataClass;
+
+
+import Modules.Pacientes;
 
 import java.util.ArrayList;
 
-class DadosPacientes {
+public class DadosPacientes {
     private final ArrayList<Pacientes> pacientesArrayList = new ArrayList<>();
 
     public void cadastrar(Pacientes c) {
