@@ -163,16 +163,7 @@ public class Medicos extends Funcionarios {
         setBonus(bonus);
     }
 
-    public static Medicos cadastrarMedico(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                                          String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
-                                          String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                                          int nroConsultas, String[] planoDeSaude, double bonus) {
-        return new Medicos(nome, cpf, rg, estadoCivil, usuario, senha,
-                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, cRM,
-                especialidadesAtendidas, valorlimConsulta, valorConsulta,
-                nroConsultas, planoDeSaude, bonus);
 
-    }
 
     @Override
     public String toString() {

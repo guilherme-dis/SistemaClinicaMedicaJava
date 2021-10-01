@@ -1,9 +1,11 @@
 package Modules;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public abstract class Funcionarios extends Pessoas {
+public abstract class Funcionarios extends Pessoas implements Serializable {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
     private double salarioBase;

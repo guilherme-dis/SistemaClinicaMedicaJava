@@ -1,24 +1,36 @@
 package DataClass;
 
 import Modules.Funcionarios;
+import Modules.Persist;
 
 import java.util.ArrayList;
 
 public class DadosFuncionarios {
-    private final ArrayList<Funcionarios> funcionariosArrayList = new ArrayList<>();
+    private static ArrayList<Funcionarios> funcionariosArrayList = new ArrayList<>();
 
-    public void cadastrar(Funcionarios c) {
-        this.funcionariosArrayList.add(c);
+    public static boolean inicializaFuncionarios() {
+        funcionariosArrayList = (ArrayList<Funcionarios>) Persist.recuperar("src/DataSource/Funcionarios.dat");
+        if (funcionariosArrayList == null) {
+            funcionariosArrayList = new ArrayList<>();
+        }
+        return true;
     }
 
-    public void listar() {
-        for (Funcionarios objeto : this.funcionariosArrayList) System.out.println(objeto);
+    public static boolean cadastrar(Funcionarios c) {
+        funcionariosArrayList.add(c);
+        Persist.gravar(funcionariosArrayList, "src/DataSource/Funcionarios.dat");
+        return true;
+
+    }
+
+    public static void listar() {
+        for (Funcionarios objeto : funcionariosArrayList) System.out.println(objeto);
     }
 
     //este método retorna o objeto Funcionaios caso encontrado, ou null, caso não encontrado
-    public Funcionarios buscar(String cpf) {//pode-se usar também int
+    public static Funcionarios buscar(String cpf) {//pode-se usar também int
         Funcionarios c = null;
-        for (Funcionarios objeto : this.funcionariosArrayList) {
+        for (Funcionarios objeto : funcionariosArrayList) {
             if (objeto.getCpf().equals(cpf)) {
                 c = objeto;
                 break;
@@ -28,12 +40,13 @@ public class DadosFuncionarios {
     }
 
     //este método usa o método buscar já implementado
-    public boolean excluir(String cpf) {
-        Funcionarios c = this.buscar(cpf);
+    public static boolean excluir(String cpf) {
+        Funcionarios c = buscar(cpf);
         if (c != null) {
-            this.funcionariosArrayList.remove(c);
+            funcionariosArrayList.remove(c);
             return true;
-        } else return false;
+        }
+        return false;
     }
 }
 //TODO perguntar a professora se é melhor retornar true/false ou uma mensagem de erro

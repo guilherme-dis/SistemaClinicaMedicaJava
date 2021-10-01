@@ -67,13 +67,7 @@ public class OutrosFuncionarios extends Funcionarios {
         setValorlim_consulta(valorlimConsulta);
     }
 
-    public static OutrosFuncionarios cadastrar(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                                               String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
-                                               double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
-        return new OutrosFuncionarios(nome, cpf, rg, estadoCivil, usuario, senha,
-                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, salarioFixo,
-                valorGratificacao, cargo, nroConsultas, valorlimConsulta);
-    }
+
 
     public boolean setvalorGratificacao(double valorGratificacao) {
         if (valorGratificacao <= 0) {

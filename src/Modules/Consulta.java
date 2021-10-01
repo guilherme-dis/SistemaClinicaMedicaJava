@@ -2,10 +2,11 @@ package Modules;
 
 import DataClass.DadosExames;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Consulta {
+public class Consulta implements Serializable {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
