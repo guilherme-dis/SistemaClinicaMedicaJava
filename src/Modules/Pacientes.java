@@ -69,7 +69,7 @@ public class Pacientes extends Pessoas implements Serializable {
 
     @Override
     public String toString() {
-        return "Pacientes{" +
+        return super.toString()+"Pacientes{" +
                 "dataUltimaConsulta=" + dataUltimaConsulta +
                 ", sexo='" + sexo + '\'' +
                 ", dateNascimento=" + dateNascimento +

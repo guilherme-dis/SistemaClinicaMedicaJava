@@ -14,9 +14,8 @@ public class Consulta implements Serializable {
     //Associates
     private Pacientes paciente;
     private Funcionarios medico, outrosFuncionarios;
-    private DadosExames exameslist;
 
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, Funcionarios outrosFuncionarios) {
         setDataDaConsulta(dataDaConsulta);
         setObservacoes(medicamentos);
         setObservacoes(observacoes);
@@ -24,13 +23,10 @@ public class Consulta implements Serializable {
         setPaciente(pacientes);
         setMedico(medico);
         setExames(exames);
-        this.exameslist = exameslist;
         setOutrosFuncionarios(outrosFuncionarios);
     }
 
-    public static Consulta cadastrar(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
-        return new Consulta(dataDaConsulta, medicamentos, observacoes, receita, pacientes, medico, exames, exameslist, outrosFuncionarios);
-    }
+
 
 
     //2.c
@@ -64,14 +60,15 @@ public class Consulta implements Serializable {
                 soma += Exames.valorSemPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
+            //TODO testar isso
+            ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
         } else {
             for (String exame : exames) {
                 soma += Exames.valorComPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
         }
-        //TODO testar isso
-        ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
+
         return soma + ((Medicos) medico).getValorConsulta();
     }
 

@@ -1,9 +1,10 @@
 package Modules;
 
+import java.io.Serializable;
 import java.util.Objects;
 //TODO fazer o endereço entrar como construtor de todo mundo
 
-public class Pessoas {
+public class Pessoas implements Serializable {
     private String nome, cpf, rg;
     private byte estadoCivil;
 
