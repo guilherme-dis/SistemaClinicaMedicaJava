@@ -1,6 +1,6 @@
 package Modules;
+
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Date;
 
 public class Pacientes extends Pessoas implements Serializable {
@@ -9,9 +9,22 @@ public class Pacientes extends Pessoas implements Serializable {
     private Date dateNascimento;
     private Date dataCadastro;
 
-    private Funcionarios [] funcionarios;
-    private Consulta consulta;
-    
+    //CONSTRUTOR
+    public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
+                     Date dateNascimento, Date dataCadastro) {
+        super(nome, cpf, rg, estadoCivil);
+        if (!setSexo(sexo)) {
+            System.err.println("Houve algum erro com a criação do sexo;");
+            throw new IllegalArgumentException();
+        } else if (!setDateNascimento(dateNascimento)) {
+            System.err.println("Data de Nascimento invalido;");
+            throw new IllegalArgumentException();
+        } else if (!setDataCadastro(dataCadastro)) {
+            System.err.println("Data de Cadastro invalido;");
+            throw new IllegalArgumentException();
+        }
+
+    }
 
     // DATA DA ÚLTIMA CONSULTA
     public Date getDataUltimaConsulta() {
@@ -52,24 +65,15 @@ public class Pacientes extends Pessoas implements Serializable {
         this.dataCadastro = dataCadastro;
         return true;
     }
-    //CONSTRUTOR
-    public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
-            Date dateNascimento, Date dataCadastro) {
-        super(nome, cpf, rg, estadoCivil);
-        setSexo(sexo);
-        setDateNascimento(dateNascimento);
-        setDataCadastro(dataCadastro);
-    }
+
 
     @Override
     public String toString() {
-        return super.toString()+" Pacientes{" +
+        return "Pacientes{" +
                 "dataUltimaConsulta=" + dataUltimaConsulta +
                 ", sexo='" + sexo + '\'' +
                 ", dateNascimento=" + dateNascimento +
                 ", dataCadastro=" + dataCadastro +
-                ", funcionarios=" + Arrays.toString(funcionarios) +
-                ", consulta=" + consulta +
                 '}';
     }
 }

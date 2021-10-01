@@ -55,12 +55,7 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         setDataIngreco(dataIngrecoNoPlano);
     }
 
-    public static Pacientes cadastroPacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
-                                                     String sexo, Date dateNascimento, Date dataCadastro, PlanoDeSaude planoDeSaude, String numeroCarteirinha,
-                                                     String periodoDeCarencia, Date dataIngrecoNoPlano) {
-        return new PacienteComPlanoDeSaude(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro, planoDeSaude, numeroCarteirinha, periodoDeCarencia, dataIngrecoNoPlano);
 
-    }
 
     @Override
     public String toString() {

@@ -2,6 +2,7 @@ package Modules;
 //TODO IMPLEMENTAR O ENDEREÇO
 
 import DataClass.DadosExames;
+import DataClass.DadosPacientes;
 import DataClass.DadosPlanosDeSaude;
 
 import java.io.Serializable;
@@ -36,13 +37,14 @@ public class App implements Serializable {
         DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Assim Saúde", "55555"));
         DadosPlanosDeSaude.listar();*/
 
-/*
+
         //Cadastro de pacientes
-        date = new Date();
         DadosPacientes.inicializaPacientes();
-        //DadosPacientes.cadastrar(PacienteComPlanoDeSaude.cadastroPacienteComPlanoDeSaude("Guilhermessss", "70122924665", "11111", "Solteiro", "Masculino", date, date, planoDeSaude.buscar("Assim Saúde"), "", "", date));
-        //DadosPacientes.cadastrar(PacienteSemPlanoDeSaude.cadastroPacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));
-        DadosPacientes.listar();
+        /*
+        date = new Date();
+        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Guilhermessss", "70122924665", "11111", "Solteiro", "Masculino", date, date, DadosPlanosDeSaude.buscar("Assim Saúde"), "", "", date));
+        DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));;
+        DadosPacientes.listar();*/
 
 
 
@@ -54,7 +56,7 @@ public class App implements Serializable {
         //Medicos
         funcionarios.cadastrar(Medicos.cadastrarMedico("Guilherme", "13924830002", "11111", "Solteiro", "", "", "", date, 1000, "", new String[]{"sangue", "Hepatite"}, 10, 100, 0, new String[]{"Hemograma", "Covid"}, 50));
 
-
+/*
 
         //Cadastro consulta
         String[] exames1 = new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
@@ -69,5 +71,8 @@ public class App implements Serializable {
 
         System.out.println(consulta.buscar("70122924665").realizarConsulta());
         System.out.println(consulta.buscar("40778470016").realizarConsulta());*/
+    }
+    public void menu(){
+
     }
 }

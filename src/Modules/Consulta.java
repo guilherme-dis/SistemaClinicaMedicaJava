@@ -60,15 +60,17 @@ public class Consulta {
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
             for (String exame : exames) {
-                soma += Exames.valorSemPlano(exameslist.buscar(exame));
+                soma += Exames.valorSemPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
         } else {
             for (String exame : exames) {
-                soma += Exames.valorComPlano(exameslist.buscar(exame));
+                soma += Exames.valorComPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
         }
+        //TODO testar isso
+        ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
         return soma + ((Medicos) medico).getValorConsulta();
     }
 

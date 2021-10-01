@@ -8,15 +8,19 @@ import java.util.ArrayList;
 
 public class DadosPacientes {
     private static ArrayList<Pacientes> pacientesArrayList = new ArrayList<>();
-    public static void inicializaPacientes(){
-        pacientesArrayList=(ArrayList<Pacientes>)Persist.recuperar("Pacientes.dat");
-        if(pacientesArrayList==null){
-            pacientesArrayList=new ArrayList<Pacientes>();
+
+    public static boolean inicializaPacientes() {
+        pacientesArrayList = (ArrayList<Pacientes>) Persist.recuperar("src/DataSource/Pacientes.dat");
+        if (pacientesArrayList == null) {
+            pacientesArrayList = new ArrayList<>();
         }
+        return true;
     }
-    public static void cadastrar(Pacientes c) {
+
+    public static boolean cadastrar(Pacientes c) {
         pacientesArrayList.add(c);
-        Persist.gravar(c, "Pacientes.dat");
+        Persist.gravar(pacientesArrayList, "src/DataSource/Pacientes.dat");
+        return true;
     }
 
     public static void listar() {
@@ -24,9 +28,9 @@ public class DadosPacientes {
     }
 
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public Pacientes buscar(String cpf) {//pode-se usar também int
+    public static Pacientes buscar(String cpf) {//pode-se usar também int
         Pacientes c = null;
-        for (Pacientes objeto : this.pacientesArrayList) {
+        for (Pacientes objeto : pacientesArrayList) {
             if (objeto.getCpf().equals(cpf)) {
                 c = objeto;
                 break;
@@ -39,11 +43,12 @@ public class DadosPacientes {
     }
 
     //este método usa o método buscar já implementado
-    public boolean excluir(String cpf) {
-        Pacientes c = this.buscar(cpf);
+    public static boolean excluir(String cpf) {
+        Pacientes c = buscar(cpf);
         if (c != null) {
-            this.pacientesArrayList.remove(c);
+            pacientesArrayList.remove(c);
             return true;
-        } else return false;
+        }
+        return false;
     }
 }

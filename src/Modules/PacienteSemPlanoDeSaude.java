@@ -31,11 +31,7 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         setDescontoEspecial(descontoEspecial);
     }
 
-    public static Pacientes cadastroPacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
-                                                            String sexo, Date dateNascimento, Date dataCadastro, double descontoEspecial) {
-        return new PacienteSemPlanoDeSaude(nome, cpf, rg, estadoCivil,
-                sexo, dateNascimento, dataCadastro, descontoEspecial);
-    }
+
 
     @Override
     public String toString() {
