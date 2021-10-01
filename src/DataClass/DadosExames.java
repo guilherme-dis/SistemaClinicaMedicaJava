@@ -45,9 +45,5 @@ public class DadosExames {
         }
         return false;
     }
-    public static boolean excluirTodosOsExames(){
-            examesArrayList.clear();
 
-        return true;
-    }
 }

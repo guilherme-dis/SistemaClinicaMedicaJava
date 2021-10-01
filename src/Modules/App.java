@@ -2,6 +2,7 @@ package Modules;
 //TODO IMPLEMENTAR O ENDEREÇO
 
 import DataClass.DadosExames;
+import DataClass.DadosPlanosDeSaude;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -24,16 +25,18 @@ public class App implements Serializable {
         */
 
 
-/*
+
         //Cadastro dos plano de saúde
-        DadosPlanosDeSaude planoDeSaude = new DadosPlanosDeSaude();
-        planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("Votorantim", "55555"));
-        planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("SulAmérica", "55555"));
-        planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("NotreDame Intermédica", "55555"));
-        planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("Prevent Senior", "55555"));
-        planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("Assim Saúde", "55555"));
+        DadosPlanosDeSaude.inicializaPlanoDeSaude();
+        /*
+        DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Votorantim", "55555"));
+        DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("SulAmérica", "55555"));
+        DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("NotreDame Intermédica", "55555"));
+        DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Prevent Senior", "55555"));
+        DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Assim Saúde", "55555"));
+        DadosPlanosDeSaude.listar();*/
 
-
+/*
         //Cadastro de pacientes
         date = new Date();
         DadosPacientes.inicializaPacientes();
