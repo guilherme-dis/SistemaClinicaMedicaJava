@@ -1,8 +1,9 @@
 package Modules;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Pacientes extends Pessoas{
+public class Pacientes extends Pessoas implements Serializable {
     private Date dataUltimaConsulta;
     private String sexo;
     private Date dateNascimento;

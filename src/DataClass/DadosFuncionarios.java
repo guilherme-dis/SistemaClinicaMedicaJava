@@ -36,3 +36,7 @@ public class DadosFuncionarios {
         } else return false;
     }
 }
+//TODO perguntar a professora se é melhor retornar true/false ou uma mensagem de erro
+
+//TODO como fazer o instanceof para uma clase neta
+

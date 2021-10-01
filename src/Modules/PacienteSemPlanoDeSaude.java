@@ -1,5 +1,6 @@
 package Modules;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class PacienteSemPlanoDeSaude extends Pacientes {

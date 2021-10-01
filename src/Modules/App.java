@@ -1,7 +1,7 @@
 package Modules;
 //TODO IMPLEMENTAR O ENDEREÇO
 
-import DataClass.*;
+import DataClass.DadosExames;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,14 +12,19 @@ public class App implements Serializable {
         Date date;
 
         //Cadastro dos exames
-        DadosExames exames = new DadosExames();
-        exames.cadastrar(Exames.cadastrar("Hemograma", 0, 20));
-        exames.cadastrar(Exames.cadastrar("Covid", 0, 160));
-        exames.cadastrar(Exames.cadastrar("Glicemia", 0, 40));
-        exames.cadastrar(Exames.cadastrar("Colesterol", 0, 45));
-        exames.cadastrar(Exames.cadastrar("Ureia", 0, 60));
-        exames.cadastrar(Exames.cadastrar("Transaminases", 0, 100));
+        DadosExames.inicializaExames();
+        /*
+        DadosExames.cadastrar(new Exames("Hemograma", 0, 20));
+        DadosExames.cadastrar(new Exames("Covid", 0, 160));
+        DadosExames.cadastrar(new Exames("Glicemia", 0, 40));
+        DadosExames.cadastrar(new Exames("Colesterol", 0, 45));
+        DadosExames.cadastrar(new Exames("Ureia", 0, 60));
+        DadosExames.cadastrar(new Exames("Transaminases", 0, 100));
+        DadosExames.listar();
+        */
 
+
+/*
         //Cadastro dos plano de saúde
         DadosPlanosDeSaude planoDeSaude = new DadosPlanosDeSaude();
         planoDeSaude.cadastrar(PlanoDeSaude.cadastrar("Votorantim", "55555"));
@@ -30,10 +35,11 @@ public class App implements Serializable {
 
 
         //Cadastro de pacientes
-        DadosPacientes pacientes = new DadosPacientes();
         date = new Date();
-        pacientes.cadastrar(PacienteComPlanoDeSaude.cadastroPacienteComPlanoDeSaude("Guilhermessss", "70122924665", "11111", "Solteiro", "Masculino", date, date, planoDeSaude.buscar("Assim Saúde"), "", "", date));
-        pacientes.cadastrar(PacienteSemPlanoDeSaude.cadastroPacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));
+        DadosPacientes.inicializaPacientes();
+        //DadosPacientes.cadastrar(PacienteComPlanoDeSaude.cadastroPacienteComPlanoDeSaude("Guilhermessss", "70122924665", "11111", "Solteiro", "Masculino", date, date, planoDeSaude.buscar("Assim Saúde"), "", "", date));
+        //DadosPacientes.cadastrar(PacienteSemPlanoDeSaude.cadastroPacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));
+        DadosPacientes.listar();
 
 
 
@@ -59,6 +65,6 @@ public class App implements Serializable {
 
 
         System.out.println(consulta.buscar("70122924665").realizarConsulta());
-        System.out.println(consulta.buscar("40778470016").realizarConsulta());
+        System.out.println(consulta.buscar("40778470016").realizarConsulta());*/
     }
 }
