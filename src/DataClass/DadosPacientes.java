@@ -18,7 +18,6 @@ public class DadosPacientes {
     }
 
     public static boolean cadastrar(Pacientes c) {
-
         if(buscar(c.getCpf())==null){
             pacientesArrayList.add(c);
             return true;
@@ -44,9 +43,6 @@ public class DadosPacientes {
                 c = objeto;
                 break;
             }
-        }
-        if (c == null) {
-            System.err.println("CPF do paciente não encontrado!");
         }
         return c;
     }

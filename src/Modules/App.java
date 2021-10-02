@@ -10,32 +10,20 @@ public class App implements Serializable {
 
     public static void main(String[] args) {
         //TODO aprender a trabalhar ocm o date.
-        Date date=new Date();
+        Date date = new Date();
         startData();
         System.out.println("Bem vindo ao sistema!");
 
-        DadosPacientes.cadastrar(new Pacientes("Arthur","90718598008","369394884","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"muito",date,date));
+
+        DadosExames.listar();
+        System.out.println();
+        DadosPlanosDeSaude.listar();
+        System.out.println();
         DadosPacientes.listar();
-
-        //Cadastro de pacientes
-/*
-        //DadosPacientes.inicializaPacientes();
-        date = new Date();
-        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Guilherme Dias Cardoso Silva", "70122924665", "11111", "Solteiro", "Masculino", date, date, DadosPlanosDeSaude.buscar("Assim Saúde"), "", "", date));
-        DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme", "40778470016", "11111", "Solteiro", "Masculino", date, date, 50f));;
-        DadosPacientes.listar();*/
+        System.out.println();
+        DadosFuncionarios.listar();
 
 
-        //Cadastro de funcionarios.
-        /*
-        //DadosFuncionarios.inicializaFuncionarios();
-
-        date = new Date();
-        //Funcionarios
-        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Guilherme", "63199245005", "11111", "Solteiro", "", "", "", date, 1000, 1000, 100, "Atendente", 0, 10));
-        //Medicos
-        DadosFuncionarios.cadastrar(new Medicos("Guilherme", "13924830002", "11111", "Solteiro", "", "", "", date, 1000, "", new String[]{"sangue", "Hepatite"}, 10, 100, 0, new String[]{"Hemograma", "Covid"}, 50));
-        DadosFuncionarios.listar();*/
 
 
         //Cadastro consulta
@@ -114,7 +102,7 @@ public class App implements Serializable {
         DadosPlanosDeSaude.gravar();
     }
 }
-        //Cadastro dos exames
+//Cadastro dos exames
         /*
         DadosExames.inicializaExames();
         DadosExames.cadastrar(new Exames("Hemograma", 0, 20));
@@ -126,7 +114,7 @@ public class App implements Serializable {
         DadosExames.listar();
         */
 
-        //Cadastro dos plano de saúde
+//Cadastro dos plano de saúde
         /*
         DadosPlanosDeSaude.inicializaPlanoDeSaude();
         DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Votorantim", "55555"));
@@ -135,3 +123,18 @@ public class App implements Serializable {
         DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Prevent Senior", "55555"));
         DadosPlanosDeSaude.cadastrar(new PlanoDeSaude("Assim Saúde", "55555"));
         DadosPlanosDeSaude.listar();*/
+
+//Cadastro de pacientes
+        /*
+        //DadosPacientes.inicializaPacientes();
+        date = new Date();
+        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Arthur","90718598008","36939488","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
+        DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme Dias Cardoso Silva","70122924665","192168","solteiro",new Endereco("waldomiro caetano machado","casa","nova california","passos",81,37904570),"masculino",date,date,20));
+
+        DadosPacientes.listar();*/
+
+//Cadastro de funcionarios.
+        /*
+        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","5555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"isadora","isa123","1111",date,1100,250,"Secretaria",10));
+        DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","5555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new String[]{"Hemograma", "Covid"}, 50));
+        DadosFuncionarios.listar();*/

@@ -151,14 +151,13 @@ public class Medicos extends Funcionarios {
 
     public Medicos(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String usuario, String senha,
                    String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
-                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                   int nroConsultas, String[] planoDeSaude, double bonus) {
+                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta, String[] planoDeSaude, double bonus) {
         super(nome, cpf, rg, estadoCivil,endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
         setEspecialidadesAtendidas(especialidadesAtendidas);
         setValorlim_consulta(valorlimConsulta);
         setValorConsulta(valorConsulta);
-        setNroConsultas(nroConsultas);
+        setNroConsultas(nroConsultas=0);
         setPlanoDeSaude(planoDeSaude);
         setBonus(bonus);
     }

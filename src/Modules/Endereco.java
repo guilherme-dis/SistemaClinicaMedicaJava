@@ -1,5 +1,8 @@
 package Modules;
-public class Endereco {
+
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
     private String rua, complemento, bairro, cidade;
     private int numero, cep;
 
@@ -86,5 +89,5 @@ public class Endereco {
         this.cep = cep;
     }
 
-    
+
 }

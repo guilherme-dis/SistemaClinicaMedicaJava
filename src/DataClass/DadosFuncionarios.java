@@ -43,9 +43,6 @@ public class DadosFuncionarios {
                 break;
             }
         }
-        if (c == null) {
-            System.err.println("CPF do paciente não encontrado!");
-        }
         return c;
     }
 
