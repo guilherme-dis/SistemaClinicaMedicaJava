@@ -10,9 +10,9 @@ public class Pacientes extends Pessoas implements Serializable {
     private Date dataCadastro;
 
     //CONSTRUTOR
-    public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
+    public Pacientes(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String sexo,
                      Date dateNascimento, Date dataCadastro) {
-        super(nome, cpf, rg, estadoCivil);
+        super(nome, cpf, rg, estadoCivil, endereco);
         if (!setSexo(sexo)) {
             System.err.println("Houve algum erro com a criação do sexo;");
             throw new IllegalArgumentException();

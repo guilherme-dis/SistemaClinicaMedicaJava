@@ -45,10 +45,10 @@ public class PacienteComPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
+    public PacienteComPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,Endereco endereco,
                                    String sexo, Date dateNascimento, Date dataCadastro, PlanoDeSaude planoDeSaude, String numeroCarteirinha,
                                    String periodoDeCarencia, Date dataIngrecoNoPlano) {
-        super(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro);
+        super(nome, cpf, rg, estadoCivil,endereco, sexo, dateNascimento, dataCadastro);
         setPlanoDeSaude(planoDeSaude);
         setNumeroCarteirinha(numeroCarteirinha);
         setPeriodoDeCarencia(periodoDeCarencia);

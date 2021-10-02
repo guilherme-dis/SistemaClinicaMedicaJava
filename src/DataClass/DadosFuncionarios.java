@@ -17,10 +17,17 @@ public class DadosFuncionarios {
     }
 
     public static boolean cadastrar(Funcionarios c) {
-        funcionariosArrayList.add(c);
+
+        if(buscar(c.getCpf())==null){
+            funcionariosArrayList.add(c);
+            return true;
+        }
+        else System.out.println("Funcionario "+c.getNome()+" já esta cadastrado");
+        return true;
+    }
+    public static boolean gravar(){
         Persist.gravar(funcionariosArrayList, "src/DataSource/Funcionarios.dat");
         return true;
-
     }
 
     public static void listar() {
@@ -52,7 +59,3 @@ public class DadosFuncionarios {
         return false;
     }
 }
-//TODO perguntar a professora se é melhor retornar true/false ou uma mensagem de erro
-
-//TODO como fazer o instanceof para uma clase neta
-

@@ -1,7 +1,7 @@
 package Modules;
 
-import javax.sql.rowset.serial.SerialBlob;
 import java.io.Serializable;
+import java.lang.reflect.GenericDeclaration;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -76,9 +76,9 @@ public abstract class Funcionarios extends Pessoas implements Serializable {
     }
 
 
-    public Funcionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+    public Funcionarios(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String usuario, String senha,
                         String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase) {
-        super(nome, cpf, rg, estadoCivil);
+        super(nome, cpf, rg, estadoCivil, endereco);
         setUsuario(usuario);
         setSenha(senha);
         setNumeroCarteiraDeTrabalho(numeroCarteiraDeTrabalho);

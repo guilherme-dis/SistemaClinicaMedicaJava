@@ -17,7 +17,17 @@ public class DadosPlanosDeSaude {
     }
 
     public static boolean cadastrar(PlanoDeSaude c) {
-        planoDeSaudeArrayList.add(c);
+
+        if(buscar(c.getNome())==null){
+            planoDeSaudeArrayList.add(c);
+            return true;
+        }
+        else System.out.println("Plano de saude já esta cadastrado");
+        return true;
+
+
+    }
+    public static boolean gravar(){
         Persist.gravar(planoDeSaudeArrayList, "src/DataSource/PlanoDeSaude.dat");
         return true;
     }

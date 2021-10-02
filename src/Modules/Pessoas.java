@@ -70,6 +70,8 @@ public class Pessoas implements Serializable {
         return "divorciado";
     }
 
+
+    //todo fazer um uppercase para sair tudo minusculo ou maiusculo
     public boolean setEstadoCivil(String estadoCivil) {
         if (Objects.equals(estadoCivil, "solteiro")) {
             this.estadoCivil = 0;
@@ -87,11 +89,12 @@ public class Pessoas implements Serializable {
         return false;
     }
 
-    public Pessoas(String nome, String cpf, String rg, String estadoCivil) {
+    public Pessoas(String nome, String cpf, String rg, String estadoCivil, Endereco endereco) {
         setNome(nome);
         setCpf(cpf);
         setRg(rg);
         setEstadoCivil(estadoCivil);
+        setEndereco(endereco);
     }
 
     @Override

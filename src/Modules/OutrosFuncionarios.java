@@ -56,10 +56,10 @@ public class OutrosFuncionarios extends Funcionarios {
         return valorGratificacao;
     }
 
-    public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+    public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String usuario, String senha,
                               String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
                               double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
-        super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
+        super(nome, cpf, rg, estadoCivil,endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         setsalarioFixo(salarioFixo);
         setvalorGratificacao(valorGratificacao);
         setCargo(cargo);

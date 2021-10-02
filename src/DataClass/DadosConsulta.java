@@ -18,8 +18,15 @@ public class DadosConsulta {
     }
 
     public static boolean cadastrar(Consulta c) {
-        consultaArrayList.add(c);
-        Persist.gravar(consultaArrayList,"src/DataSource/Consulta.dat");
+        if(buscar(c.getPaciente().getCpf())==null){
+            consultaArrayList.add(c);
+            return true;
+        }
+        else System.out.println("Paciente "+c.getPaciente().getNome()+" já esta cadastrado");
+        return true;
+    }
+    public static boolean gravar(){
+        Persist.gravar(consultaArrayList, "src/DataSource/Consulta.dat");
         return true;
     }
 

@@ -1,23 +1,31 @@
 package DataClass;
+
 import Modules.Exames;
 import Modules.Persist;
+
 import java.util.ArrayList;
 
 public class DadosExames {
     private static ArrayList<Exames> examesArrayList = new ArrayList<>();
-    public static boolean inicializaExames(){
-        examesArrayList=(ArrayList<Exames>) Persist.recuperar("src/DataSource/Exames.dat");
-        if(examesArrayList==null){
-            examesArrayList=new ArrayList<>();
+
+    public static boolean inicializaExames() {
+        examesArrayList = (ArrayList<Exames>) Persist.recuperar("src/DataSource/Exames.dat");
+        if (examesArrayList == null) {
+            examesArrayList = new ArrayList<>();
         }
         return true;
     }
 
     public static boolean cadastrar(Exames c) {
-        //TODO, cadastar, mas ver se já existe., se existir, atualiza.
-        examesArrayList.add(c);
-        Persist.gravar(examesArrayList,"src/DataSource/Exames.dat");
+        if (buscar(c.getNome()) == null) {
+            examesArrayList.add(c);
+            return true;
+        } else System.out.println("já esta cadastrado");
         return true;
+    }
+
+    public static void gravar() {
+        Persist.gravar(examesArrayList, "src/DataSource/Exames.dat");
     }
 
     public static void listar() {

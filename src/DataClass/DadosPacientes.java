@@ -18,7 +18,16 @@ public class DadosPacientes {
     }
 
     public static boolean cadastrar(Pacientes c) {
-        pacientesArrayList.add(c);
+
+        if(buscar(c.getCpf())==null){
+            pacientesArrayList.add(c);
+            return true;
+        }
+        else System.out.println("Paciente "+c.getNome()+" já esta cadastrado");
+        return true;
+
+    }
+    public static boolean gravar(){
         Persist.gravar(pacientesArrayList, "src/DataSource/Pacientes.dat");
         return true;
     }

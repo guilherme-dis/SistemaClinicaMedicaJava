@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PacienteSemPlanoDeSaude extends Pacientes {
-    //TODO procurar saber como funciona o instanceof
     private double descontoEspecial, valorPagoNaUltimaConsulta;
 
     public double getDescontoEspecial() {
@@ -25,9 +24,9 @@ public class PacienteSemPlanoDeSaude extends Pacientes {
         return true;
     }
 
-    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,
+    public PacienteSemPlanoDeSaude(String nome, String cpf, String rg, String estadoCivil,Endereco endereco,
                                    String sexo, Date dateNascimento, Date dataCadastro, double descontoEspecial) {
-        super(nome, cpf, rg, estadoCivil, sexo, dateNascimento, dataCadastro);
+        super(nome, cpf, rg, estadoCivil,endereco, sexo, dateNascimento, dataCadastro);
         setDescontoEspecial(descontoEspecial);
     }
 
