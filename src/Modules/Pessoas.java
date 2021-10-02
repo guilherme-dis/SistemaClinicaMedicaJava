@@ -2,21 +2,24 @@ package Modules;
 
 import java.io.Serializable;
 import java.util.Objects;
-//TODO fazer o endereço entrar como construtor de todo mundo
 
 public class Pessoas implements Serializable {
     private String nome, cpf, rg;
     private byte estadoCivil;
-
     private Endereco endereco;
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public boolean setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-        return true;
+    //CONSTRUTOR
+    public Pessoas(String nome, String cpf, String rg, String estadoCivil, Endereco endereco) {
+        if (!setNome(nome)) {
+            throw new IllegalArgumentException("O nome não esta correto ou não foi inserido! Tem que ter menos de 50 caracteres.");
+        }if(!setCpf(cpf)){
+            throw new IllegalArgumentException("O cpf não está correto.");
+        }if(!setRg(rg)){
+            throw new IllegalArgumentException("O rg não está correto.");
+        }if(!setEstadoCivil(estadoCivil)){
+            throw new IllegalArgumentException("A entrada o estado civil está errado. Digite ('Solteiro','Casado','Divorciado').");
+        }
+        setEndereco(endereco);
     }
 
     // NOME
@@ -25,11 +28,13 @@ public class Pessoas implements Serializable {
     }
 
     public boolean setNome(String nome) {
-        if (nome.length() > 0) {
-            this.nome = nome;
-            return true;
-        } else
+        if (nome.isEmpty()) {
             return false;
+        } else if (nome.length() > 50) {
+            return false;
+        }
+        this.nome = nome;
+        return true;
 
     }
 
@@ -43,8 +48,7 @@ public class Pessoas implements Serializable {
             this.cpf = cpf;
             return true;
         } else
-            System.err.println("Não foi possível cadastrar o cpf");
-            return false;
+        return false;
     }
 
     // RG
@@ -62,17 +66,16 @@ public class Pessoas implements Serializable {
 
     // ESTADO CIVIL
     public String getEstadoCivil() {
+
         if (this.estadoCivil == 0) {
-            return "solteiro";
+            return "Solteiro";
         } else if (this.estadoCivil == 1) {
-            return "casado";
+            return "Casado";
         }
-        return "divorciado";
+        return "Divorciado";
     }
-
-
-    //todo fazer um uppercase para sair tudo minusculo ou maiusculo
     public boolean setEstadoCivil(String estadoCivil) {
+        estadoCivil=estadoCivil.toLowerCase();
         if (Objects.equals(estadoCivil, "solteiro")) {
             this.estadoCivil = 0;
             return true;
@@ -85,16 +88,18 @@ public class Pessoas implements Serializable {
             this.estadoCivil = 2;
             return true;
         }
-
         return false;
     }
 
-    public Pessoas(String nome, String cpf, String rg, String estadoCivil, Endereco endereco) {
-        setNome(nome);
-        setCpf(cpf);
-        setRg(rg);
-        setEstadoCivil(estadoCivil);
-        setEndereco(endereco);
+
+    //ENDERECO
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public boolean setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+        return true;
     }
 
     @Override
@@ -103,7 +108,7 @@ public class Pessoas implements Serializable {
                 "nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", rg='" + rg + '\'' +
-                ", estadoCivil=" + estadoCivil +
+                ", estadoCivil=" + getEstadoCivil() +
                 ", endereco=" + endereco +
                 '}';
     }
@@ -111,5 +116,7 @@ public class Pessoas implements Serializable {
     public Pessoas(String cpf) {
         this.cpf = cpf;
     }
-    public Pessoas(){}
+
+    public Pessoas() {
+    }
 }

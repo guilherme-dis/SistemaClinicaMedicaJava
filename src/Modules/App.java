@@ -22,9 +22,16 @@ public class App implements Serializable {
         DadosPacientes.listar();
         System.out.println();
         DadosFuncionarios.listar();
+        System.out.println();
+        DadosConsulta.listar();
 
 
-
+        try{
+            DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("oi","29235801095","36939488","casado",new Endereco("Graziel ferreira","casa","bela vista","itau","44","37975000"),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
+        }catch (RuntimeException e){
+            System.err.println(e.getMessage());
+        }
+        DadosPacientes.listar();
 
         //Cadastro consulta
         /*
