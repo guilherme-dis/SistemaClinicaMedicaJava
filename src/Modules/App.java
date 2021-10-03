@@ -10,46 +10,37 @@ public class App implements Serializable {
 
     public static void main(String[] args) {
         //TODO aprender a trabalhar ocm o date.
-        Date date = new Date();
-        startData();
-        System.out.println("Bem vindo ao sistema!");
+        try {
+            Date date = new Date();
+            startData();
+            System.out.println("Bem vindo ao sistema!");
 
 
-        DadosExames.listar();
-        System.out.println();
-        DadosPlanosDeSaude.listar();
-        System.out.println();
-        DadosPacientes.listar();
-        System.out.println();
-        DadosFuncionarios.listar();
-        System.out.println();
-        DadosConsulta.listar();
+            DadosExames.listar();
+            System.out.println();
+            DadosPlanosDeSaude.listar();
+            System.out.println();
+            DadosPacientes.listar();
+            System.out.println();
+            DadosFuncionarios.listar();
+            System.out.println();
+            DadosConsulta.listar();
+            System.out.println();
 
 
-        try{
-            DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("oi","29235801095","36939488","casado",new Endereco("Graziel ferreira","casa","bela vista","itau","44","37975000"),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
-        }catch (RuntimeException e){
+
+            //CODIGO AQUI
+            
+
+
+
+
+
+
+        } catch (RuntimeException e) {
             System.err.println(e.getMessage());
+            System.exit(0);
         }
-        DadosPacientes.listar();
-
-        //Cadastro consulta
-        /*
-        String[] exames1 = new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
-        String[] exames2 = new String[]{"Hemograma", "Colesterol", "Transaminases"};
-
-        date = new Date();
-        DadosConsulta.inicializaConsulta();
-
-        //DadosConsulta.cadastrar(new Consulta(date, "", "", "", DadosPacientes.buscar("70122924665"), DadosFuncionarios.buscar("13924830002"), exames1, DadosFuncionarios.buscar("63199245005")));
-        //DadosConsulta.cadastrar(new Consulta(date, "", "", "", DadosPacientes.buscar("40778470016"), DadosFuncionarios.buscar("13924830002"), exames2, DadosFuncionarios.buscar("63199245005")));
-        DadosConsulta.listar();
-*/
-
-/*
-        System.out.println("Valor que o paciente vai pagar sem plano de saude vai pagar " + DadosConsulta.buscar("70122924665").realizarConsulta());
-        System.out.println("Valor que o paciente vai pagar com plano de saude vai pagar " + DadosConsulta.buscar("40778470016").realizarConsulta());*/
-
         saveData();
     }
 
@@ -112,12 +103,12 @@ public class App implements Serializable {
 //Cadastro dos exames
         /*
         DadosExames.inicializaExames();
-        DadosExames.cadastrar(new Exames("Hemograma", 0, 20));
-        DadosExames.cadastrar(new Exames("Covid", 0, 160));
-        DadosExames.cadastrar(new Exames("Glicemia", 0, 40));
-        DadosExames.cadastrar(new Exames("Colesterol", 0, 45));
-        DadosExames.cadastrar(new Exames("Ureia", 0, 60));
-        DadosExames.cadastrar(new Exames("Transaminases", 0, 100));
+            DadosExames.cadastrar(new Exames("Hemograma", 20, 0));
+            DadosExames.cadastrar(new Exames("Covid", 160, 0));
+            DadosExames.cadastrar(new Exames("Glicemia", 40, 0));
+            DadosExames.cadastrar(new Exames("Colesterol", 30, 0));
+            DadosExames.cadastrar(new Exames("Ureia", 20, 0));
+            DadosExames.cadastrar(new Exames("Transaminases", 50, 0));
         DadosExames.listar();
         */
 
@@ -142,6 +133,21 @@ public class App implements Serializable {
 
 //Cadastro de funcionarios.
         /*
-        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","5555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"isadora","isa123","1111",date,1100,250,"Secretaria",10));
-        DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","5555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new String[]{"Hemograma", "Covid"}, 50));
+        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"isadora","isa123","1111",date,1100,250,"Secretaria",10));
+        DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new PlanoDeSaude[]{DadosPlanosDeSaude.buscar("Votorantim"), DadosPlanosDeSaude.buscar("Prevent Senior")}, 50));
+
         DadosFuncionarios.listar();*/
+
+
+/*
+//Cadastro consulta
+            String[] exames1 = new String[]{"Hemograma", "Glicemia", "Colesterol", "Transaminases"};
+            String[] exames2 = new String[]{"Hemograma", "Colesterol", "Transaminases"};
+
+            DadosConsulta.cadastrar(new Consulta(date, "Dipirona", "Voltar em uma semana", "Dipirona de 8 em 8 horas", DadosPacientes.buscar("70122924665"), DadosFuncionarios.buscar("26776897077"), exames1, DadosFuncionarios.buscar("44225173097")));
+            DadosConsulta.cadastrar(new Consulta(date, "", "", "", DadosPacientes.buscar("40778470016"), DadosFuncionarios.buscar("13924830002"), exames2, DadosFuncionarios.buscar("63199245005")));
+            DadosConsulta.listar();
+ */
+
+//System.out.println("Valor que o paciente vai pagar sem plano de saude vai pagar " + DadosConsulta.buscar("70122924665").realizarConsulta());
+//System.out.println("Valor que o paciente vai pagar com plano de saude vai pagar " + DadosConsulta.buscar("40778470016").realizarConsulta());

@@ -18,12 +18,8 @@ public class DadosConsulta {
     }
 
     public static boolean cadastrar(Consulta c) {
-        if(buscar(c.getPaciente().getCpf())==null){
             consultaArrayList.add(c);
             return true;
-        }
-        else System.out.println("Paciente "+c.getPaciente().getNome()+" já esta cadastrado");
-        return true;
     }
     public static boolean gravar(){
         Persist.gravar(consultaArrayList, "src/DataSource/Consulta.dat");
@@ -34,7 +30,6 @@ public class DadosConsulta {
         for (Consulta objeto : consultaArrayList) System.out.println(objeto);
     }
 
-    //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
     public static Consulta buscar(String cpf) {//pode-se usar também int
         Consulta c = null;
         for (Consulta objeto : consultaArrayList) {
@@ -43,7 +38,9 @@ public class DadosConsulta {
                 break;
             }
         }
-        //System.err.println("Paciente não encontrado!");
+        if(c==null){
+            throw new IllegalArgumentException("Não foi encontrado consulta para esse paciente.");
+        }
         return c;
     }
 

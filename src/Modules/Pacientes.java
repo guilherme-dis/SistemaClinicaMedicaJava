@@ -14,16 +14,12 @@ public class Pacientes extends Pessoas implements Serializable {
                      Date dateNascimento, Date dataCadastro) {
         super(nome, cpf, rg, estadoCivil, endereco);
         if (!setSexo(sexo)) {
-            System.err.println("Houve algum erro com a criação do sexo;");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Houve algum erro com a criação do sexo;");
         } else if (!setDateNascimento(dateNascimento)) {
-            System.err.println("Data de Nascimento invalido;");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Data de Nascimento invalido;");
         } else if (!setDataCadastro(dataCadastro)) {
-            System.err.println("Data de Cadastro invalido;");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Data de Cadastro invalido;");
         }
-
     }
 
     // DATA DA ÚLTIMA CONSULTA

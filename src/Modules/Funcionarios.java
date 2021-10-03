@@ -10,9 +10,6 @@ public abstract class Funcionarios extends Pessoas implements Serializable {
     private Date dataAdmissaoNaClinica;
     private double salarioBase;
     private Date tempoDeTrabalho;
-
-
-    //Associate
     private Consulta[] consultas;
 
     // USUARIO

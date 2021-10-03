@@ -42,17 +42,17 @@ public class DadosFuncionarios {
                 c = objeto;
                 break;
             }
-        }
+        }/*
+        if (c == null) {
+            throw new IllegalArgumentException("CPF do Funcionario não encontrado.");
+        }*/
         return c;
     }
 
     //este método usa o método buscar já implementado
     public static boolean excluir(String cpf) {
         Funcionarios c = buscar(cpf);
-        if (c != null) {
-            funcionariosArrayList.remove(c);
-            return true;
-        }
-        return false;
+        funcionariosArrayList.remove(c);
+        return true;
     }
 }

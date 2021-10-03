@@ -17,7 +17,7 @@ public class Consulta implements Serializable {
 
     public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, Funcionarios outrosFuncionarios) {
         setDataDaConsulta(dataDaConsulta);
-        setObservacoes(medicamentos);
+        setMedicamentos(medicamentos);
         setObservacoes(observacoes);
         setReceita(receita);
         setPaciente(pacientes);
@@ -31,21 +31,35 @@ public class Consulta implements Serializable {
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
-        this.paciente = paciente;
-        this.medico = medico;
-
+        setPaciente(paciente);
+        setMedico(medico);
     }
 
     //3.d
-    private static int nroConsultas;
+    private static int nroConsultas=0;
 
-    public boolean resetConsultas() {
-        nroConsultas = 0;
-        return true;
+    public static int getNroConsultas() {
+        return nroConsultas;
+    }
+
+    public static void setNroConsultas(int nroConsultas) {
+        Consulta.nroConsultas = nroConsultas;
+    }
+
+    public static void resetConsultas() {
+        setNroConsultas(0);
     }
 
     //3.e
-    private static int limiteConsultas;
+    private static int limiteConsultas=0;
+
+    public static int getLimiteConsultas() {
+        return limiteConsultas;
+    }
+
+    public static void setLimiteConsultas(int limiteConsultas) {
+        Consulta.limiteConsultas = limiteConsultas;
+    }
 
     //4
 
@@ -53,6 +67,7 @@ public class Consulta implements Serializable {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         ((OutrosFuncionarios) outrosFuncionarios).setnroConsultas(((OutrosFuncionarios) outrosFuncionarios).getNroConsultas() + 1);
         ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
+        nroConsultas++;
 
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
@@ -90,21 +105,6 @@ public class Consulta implements Serializable {
         return true;
     }
 
-    public static int getNroConsultas() {
-        return nroConsultas;
-    }
-
-    public static void setNroConsultas(int nroConsultas) {
-        Consulta.nroConsultas = nroConsultas;
-    }
-
-    public static int getLimiteConsultas() {
-        return limiteConsultas;
-    }
-
-    public static void setLimiteConsultas(int limiteConsultas) {
-        Consulta.limiteConsultas = limiteConsultas;
-    }
 
 
     public Date getDataDaConsulta() {

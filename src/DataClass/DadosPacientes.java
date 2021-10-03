@@ -18,15 +18,15 @@ public class DadosPacientes {
     }
 
     public static boolean cadastrar(Pacientes c) {
-        if(buscar(c.getCpf())==null){
+        if (buscar(c.getCpf()) == null) {
             pacientesArrayList.add(c);
             return true;
-        }
-        else System.out.println("Paciente "+c.getNome()+" já esta cadastrado");
+        } else System.out.println("Paciente " + c.getNome() + " já esta cadastrado");
         return true;
 
     }
-    public static boolean gravar(){
+
+    public static boolean gravar() {
         Persist.gravar(pacientesArrayList, "src/DataSource/Pacientes.dat");
         return true;
     }
@@ -44,16 +44,16 @@ public class DadosPacientes {
                 break;
             }
         }
+        if (c == null) {
+            throw new IllegalArgumentException("CPF do paciente não encontrado.");
+        }
         return c;
     }
 
     //este método usa o método buscar já implementado
     public static boolean excluir(String cpf) {
         Pacientes c = buscar(cpf);
-        if (c != null) {
-            pacientesArrayList.remove(c);
-            return true;
-        }
-        return false;
+        pacientesArrayList.remove(c);
+        return true;
     }
 }
