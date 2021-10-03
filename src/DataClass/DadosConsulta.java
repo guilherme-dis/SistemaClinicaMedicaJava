@@ -1,39 +1,56 @@
 package DataClass;
 
 import Modules.Consulta;
+import Modules.Exames;
+import Modules.Persist;
 
 import java.util.ArrayList;
 
 public class DadosConsulta {
-    private final ArrayList<Consulta> consultaArrayList = new ArrayList<>();
+    private static  ArrayList<Consulta> consultaArrayList = new ArrayList<>();
 
-    public void cadastrar(Consulta c) {
-        this.consultaArrayList.add(c);
+    public static boolean inicializaConsulta(){
+        consultaArrayList=(ArrayList<Consulta>) Persist.recuperar("src/DataSource/Consulta.dat");
+        if(consultaArrayList==null){
+            consultaArrayList=new ArrayList<>();
+        }
+        return true;
     }
 
-    public void listar() {
-        for (Consulta objeto : this.consultaArrayList) System.out.println(objeto);
+    public static boolean cadastrar(Consulta c) {
+            consultaArrayList.add(c);
+            return true;
+    }
+    public static boolean gravar(){
+        Persist.gravar(consultaArrayList, "src/DataSource/Consulta.dat");
+        return true;
     }
 
-    //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public Consulta buscar(String cpf) {//pode-se usar também int
+    public static void listar() {
+        for (Consulta objeto : consultaArrayList) System.out.println(objeto);
+    }
+
+    public static Consulta buscar(String cpf) {//pode-se usar também int
         Consulta c = null;
-        for (Consulta objeto : this.consultaArrayList) {
+        for (Consulta objeto : consultaArrayList) {
             if (objeto.getPaciente().getCpf().equals(cpf)) {
                 c = objeto;
                 break;
             }
         }
-        //System.err.println("Paciente não encontrado!");
+        if(c==null){
+            throw new IllegalArgumentException("Não foi encontrado consulta para esse paciente.");
+        }
         return c;
     }
 
     //este método usa o método buscar já implementado
-    public boolean excluir(String cpf) {
-        Consulta c = this.buscar(cpf);
+    public static boolean excluir(String cpf) {
+        Consulta c = buscar(cpf);
         if (c != null) {
-            this.consultaArrayList.remove(c);
+            consultaArrayList.remove(c);
             return true;
-        } else return false;
+        }
+        return false;
     }
 }

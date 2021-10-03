@@ -1,24 +1,41 @@
 package DataClass;
 
 import Modules.Exames;
+import Modules.Persist;
 
 import java.util.ArrayList;
 
 public class DadosExames {
-    private final ArrayList<Exames> examesArrayList = new ArrayList<>();
+    private static ArrayList<Exames> examesArrayList = new ArrayList<>();
 
-    public void cadastrar(Exames c) {
-        this.examesArrayList.add(c);
+    public static boolean inicializaExames() {
+        examesArrayList = (ArrayList<Exames>) Persist.recuperar("src/DataSource/Exames.dat");
+        if (examesArrayList == null) {
+            examesArrayList = new ArrayList<>();
+        }
+        return true;
     }
 
-    public void listar() {
-        for (Exames objeto : this.examesArrayList) System.out.println(objeto);
+    public static boolean cadastrar(Exames c) {
+        if (buscar(c.getNome()) == null) {
+            examesArrayList.add(c);
+            return true;
+        } else System.out.println("já esta cadastrado");
+        return true;
+    }
+
+    public static void gravar() {
+        Persist.gravar(examesArrayList, "src/DataSource/Exames.dat");
+    }
+
+    public static void listar() {
+        for (Exames objeto : examesArrayList) System.out.println(objeto);
     }
 
     //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public Exames buscar(String nome) {//pode-se usar também int
+    public static Exames buscar(String nome) {//pode-se usar também int
         Exames c = null;
-        for (Exames objeto : this.examesArrayList) {
+        for (Exames objeto : examesArrayList) {
             if (objeto.getNome().equals(nome)) {
                 c = objeto;
                 break;
@@ -28,11 +45,13 @@ public class DadosExames {
     }
 
     //este método usa o método buscar já implementado
-    public boolean excluir(String nome) {
-        Exames c = this.buscar(nome);
+    public static boolean excluir(String nome) {
+        Exames c = buscar(nome);
         if (c != null) {
-            this.examesArrayList.remove(c);
+            examesArrayList.remove(c);
             return true;
-        } else return false;
+        }
+        return false;
     }
+
 }

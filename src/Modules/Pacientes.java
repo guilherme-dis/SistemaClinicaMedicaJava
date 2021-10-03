@@ -1,16 +1,26 @@
 package Modules;
-import java.util.Arrays;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Pacientes extends Pessoas{
+public class Pacientes extends Pessoas implements Serializable {
     private Date dataUltimaConsulta;
     private String sexo;
     private Date dateNascimento;
     private Date dataCadastro;
 
-    private Funcionarios [] funcionarios;
-    private Consulta consulta;
-    
+    //CONSTRUTOR
+    public Pacientes(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String sexo,
+                     Date dateNascimento, Date dataCadastro) {
+        super(nome, cpf, rg, estadoCivil, endereco);
+        if (!setSexo(sexo)) {
+            throw new IllegalArgumentException("Houve algum erro com a criação do sexo;");
+        } else if (!setDateNascimento(dateNascimento)) {
+            throw new IllegalArgumentException("Data de Nascimento invalido;");
+        } else if (!setDataCadastro(dataCadastro)) {
+            throw new IllegalArgumentException("Data de Cadastro invalido;");
+        }
+    }
 
     // DATA DA ÚLTIMA CONSULTA
     public Date getDataUltimaConsulta() {
@@ -51,24 +61,15 @@ public class Pacientes extends Pessoas{
         this.dataCadastro = dataCadastro;
         return true;
     }
-    //CONSTRUTOR
-    public Pacientes(String nome, String cpf, String rg, String estadoCivil, String sexo,
-            Date dateNascimento, Date dataCadastro) {
-        super(nome, cpf, rg, estadoCivil);
-        setSexo(sexo);
-        setDateNascimento(dateNascimento);
-        setDataCadastro(dataCadastro);
-    }
+
 
     @Override
     public String toString() {
-        return super.toString()+" Pacientes{" +
+        return super.toString()+"Pacientes{" +
                 "dataUltimaConsulta=" + dataUltimaConsulta +
                 ", sexo='" + sexo + '\'' +
                 ", dateNascimento=" + dateNascimento +
                 ", dataCadastro=" + dataCadastro +
-                ", funcionarios=" + Arrays.toString(funcionarios) +
-                ", consulta=" + consulta +
                 '}';
     }
 }

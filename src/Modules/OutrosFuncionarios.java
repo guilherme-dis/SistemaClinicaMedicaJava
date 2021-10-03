@@ -3,8 +3,6 @@ package Modules;
 import java.util.Date;
 
 public class OutrosFuncionarios extends Funcionarios {
-    private double salarioFixo;
-    private double valorGratificacao;
     private String cargo;
     private int nroConsultas;
     private double valorlimConsulta;
@@ -18,71 +16,32 @@ public class OutrosFuncionarios extends Funcionarios {
     }
 
     public static boolean setValorASerPagoDeGratificacao(double valorASerPagoDeGratificacao) {
-        OutrosFuncionarios.valorASerPagoDeGratificacao = valorASerPagoDeGratificacao;
+        if (valorASerPagoDeGratificacao < 0)
+            OutrosFuncionarios.valorASerPagoDeGratificacao = 0;
+        else
+            OutrosFuncionarios.valorASerPagoDeGratificacao = valorASerPagoDeGratificacao;
         return true;
     }
 
     //3.i
     public double calcularSalario() {
         if (Consulta.getLimiteConsultas() <= Consulta.getNroConsultas()) {
-            return salarioFixo + valorGratificacao;
+            return getSalarioBase() + getValorASerPagoDeGratificacao();
         }
-        return salarioFixo;
+        return getSalarioBase();
     }
 
-    @Override
-    public void loginClinica() {
 
-    }
-
-    @Override
-    public void logoffClinica() {
-
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()+"OutrosFuncionarios{" +
-                "salarioFixo=" + salarioFixo +
-                ", valorGratificacao=" + valorGratificacao +
-                ", cargo='" + cargo + '\'' +
-                ", nroConsultas=" + nroConsultas +
-                ", valorlimConsulta=" + valorlimConsulta +
-                '}';
-    }
-
-    // Valor de gratificacao
-    public double getvalorGratificacao() {
-        return valorGratificacao;
-    }
-
-    public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                              String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
-                              double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
-        super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
-        setsalarioFixo(salarioFixo);
-        setvalorGratificacao(valorGratificacao);
+    public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
+                              String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase,
+                              double valorGratificacao, String cargo, double valorlimConsulta) {
+        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
+        setValorASerPagoDeGratificacao(valorGratificacao);
         setCargo(cargo);
-        setnroConsultas(nroConsultas);
-        setValorlim_consulta(valorlimConsulta);
+        setnroConsultas(nroConsultas = 0);
+        setValorlimConsulta(valorlimConsulta);
     }
 
-    public static OutrosFuncionarios cadastrar(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                                               String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, double salarioFixo,
-                                               double valorGratificacao, String cargo, int nroConsultas, double valorlimConsulta) {
-        return new OutrosFuncionarios(nome, cpf, rg, estadoCivil, usuario, senha,
-                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, salarioFixo,
-                valorGratificacao, cargo, nroConsultas, valorlimConsulta);
-    }
-
-    public boolean setvalorGratificacao(double valorGratificacao) {
-        if (valorGratificacao <= 0) {
-            return false;
-        } else {
-            this.valorGratificacao = valorGratificacao;
-            return true;
-        }
-    }
 
     // Numeros de consultas realizadas
     public int getNroConsultas() {
@@ -103,7 +62,7 @@ public class OutrosFuncionarios extends Funcionarios {
         return valorlimConsulta;
     }
 
-    public boolean setValorlim_consulta(double valorlim_consulta) {
+    public boolean setValorlimConsulta(double valorlim_consulta) {
         if (valorlim_consulta <= 0)
             return false;
         else {
@@ -113,19 +72,6 @@ public class OutrosFuncionarios extends Funcionarios {
 
     }
 
-    // Salario
-    public double getsalarioFixo() {
-        return salarioFixo;
-    }
-
-    public boolean setsalarioFixo(double salarioFixo) {
-        if (salarioFixo <= 0)
-            return false;
-        else {
-            this.salarioFixo = salarioFixo;
-            return true;
-        }
-    }
 
     // Cargo
     public String getCargo() {
@@ -140,24 +86,35 @@ public class OutrosFuncionarios extends Funcionarios {
             return false;
     }
 
-    public void confere_gratificacao() {
+    public void confereGratificacao() {
         if (nroConsultas > valorlimConsulta) {
-            salarioFixo += valorGratificacao;
+            setSalarioBase(getSalarioBase() + getValorASerPagoDeGratificacao());
         }
 
     }
 
-    public double getValorGratificacao() {
-        return valorGratificacao;
-    }
-
-    public boolean setValorGratificacao(double valorGratificacao) {
-        this.valorGratificacao = valorGratificacao;
-        return true;
-    }
 
     public boolean setNroConsultas(int nroConsultas) {
         this.nroConsultas = nroConsultas;
         return true;
+    }
+
+    @Override
+    public void loginClinica() {
+
+    }
+
+    @Override
+    public void logoffClinica() {
+
+    }
+    @Override
+    public String toString() {
+        return super.toString() + "OutrosFuncionarios{" +
+                ", valorGratificacao=" + getValorASerPagoDeGratificacao() +
+                ", cargo='" + cargo + '\'' +
+                ", nroConsultas=" + nroConsultas +
+                ", valorlimConsulta=" + valorlimConsulta +
+                '}';
     }
 }

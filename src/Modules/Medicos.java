@@ -8,17 +8,17 @@ import java.util.Date;
 public class Medicos extends Funcionarios {
     private String CRM;
     private String[] especialidadesAtendidas;
-    private double valorConsulta;
-    private double somaConsultasMes;
-    private double bonus;
-    private int nroConsultas, valorlimConsulta;
-    //TODO plano de saude tem que ser do tipo PlanoDesaude, = private PlanoDeSaude[] planoDeSaude;
-    private String[] planoDeSaude;
+    private double valorConsulta, somaConsultasMes, bonus;
+    private int nroConsultas=0, valorlimConsulta;
+    private PlanoDeSaude[] planoDeSaude;
 
     //2.a
-    public Medicos(String cpf, String[] planoDeSaude) {
+    public Medicos(String cpf, PlanoDeSaude[] planoDeSaude) {
         super(cpf);
-        this.planoDeSaude = planoDeSaude;
+        if (!setPlanoDeSaude(planoDeSaude)) {
+            throw new IllegalArgumentException("Erro ao inserir plano de saude");
+        }
+        ;
     }
 
     //2.b
@@ -27,7 +27,6 @@ public class Medicos extends Funcionarios {
 
     //3.h
 
-    //TODO calcula salario
     public double calcularSalario() {
         if (valorlimConsulta <= nroConsultas) {
             somaConsultasMes += bonus;
@@ -51,11 +50,11 @@ public class Medicos extends Funcionarios {
         return true;
     }
 
-    public String[] getPlanoDeSaude() {
+    public PlanoDeSaude[] getPlanoDeSaude() {
         return planoDeSaude;
     }
 
-    public boolean setPlanoDeSaude(String[] planoDeSaude) {
+    public boolean setPlanoDeSaude(PlanoDeSaude[] planoDeSaude) {
         this.planoDeSaude = planoDeSaude;
         return true;
     }
@@ -92,7 +91,7 @@ public class Medicos extends Funcionarios {
         if (nroConsultas < 0)
             return false;
         else {
-            this.nroConsultas = nroConsultas;
+            this.nroConsultas += nroConsultas;
             return true;
         }
     }
@@ -149,30 +148,31 @@ public class Medicos extends Funcionarios {
         return true;
     }
 
-    public Medicos(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+    public Medicos(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
                    String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
-                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                   int nroConsultas, String[] planoDeSaude, double bonus) {
-        super(nome, cpf, rg, estadoCivil, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
+                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta, PlanoDeSaude[] planoDeSaude, double bonus) {
+        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
         CRM = cRM;
-        setEspecialidadesAtendidas(especialidadesAtendidas);
-        setValorlim_consulta(valorlimConsulta);
-        setValorConsulta(valorConsulta);
-        setNroConsultas(nroConsultas);
-        setPlanoDeSaude(planoDeSaude);
-        setBonus(bonus);
+        if (!setEspecialidadesAtendidas(especialidadesAtendidas)) {
+            throw new IllegalArgumentException("Ocorreu um erro ao informar as especialidades atendidas.");
+        }
+        if (!setValorlim_consulta(valorlimConsulta)) {
+            throw new IllegalArgumentException("Valor Limite de consulta inserido incorretamente.");
+        }
+        if (!setValorConsulta(valorConsulta)) {
+            throw new IllegalArgumentException("Valor de cada consulta inserido incorretamente.");
+        }
+        if (!setNroConsultas(nroConsultas = 0)) {
+            throw new IllegalArgumentException("Numero de consultas inserido incorretamente.");
+        }
+        if (!setPlanoDeSaude(planoDeSaude)) {
+            throw new IllegalArgumentException("Plano de saude inserido incorretamente.");
+        }
+        if (!setBonus(bonus)) {
+            throw new IllegalArgumentException("Valor bonus inserido incorretamente.");
+        }
     }
 
-    public static Medicos cadastrarMedico(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
-                                          String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
-                                          String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta,
-                                          int nroConsultas, String[] planoDeSaude, double bonus) {
-        return new Medicos(nome, cpf, rg, estadoCivil, usuario, senha,
-                numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase, cRM,
-                especialidadesAtendidas, valorlimConsulta, valorConsulta,
-                nroConsultas, planoDeSaude, bonus);
-
-    }
 
     @Override
     public String toString() {

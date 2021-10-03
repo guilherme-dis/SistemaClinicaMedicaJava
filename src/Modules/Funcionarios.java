@@ -1,16 +1,15 @@
 package Modules;
 
+import java.io.Serializable;
+import java.lang.reflect.GenericDeclaration;
 import java.util.Arrays;
 import java.util.Date;
 
-public abstract class Funcionarios extends Pessoas {
+public abstract class Funcionarios extends Pessoas implements Serializable {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
     private double salarioBase;
     private Date tempoDeTrabalho;
-
-
-    //Associate
     private Consulta[] consultas;
 
     // USUARIO
@@ -74,9 +73,9 @@ public abstract class Funcionarios extends Pessoas {
     }
 
 
-    public Funcionarios(String nome, String cpf, String rg, String estadoCivil, String usuario, String senha,
+    public Funcionarios(String nome, String cpf, String rg, String estadoCivil,Endereco endereco, String usuario, String senha,
                         String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase) {
-        super(nome, cpf, rg, estadoCivil);
+        super(nome, cpf, rg, estadoCivil, endereco);
         setUsuario(usuario);
         setSenha(senha);
         setNumeroCarteiraDeTrabalho(numeroCarteiraDeTrabalho);

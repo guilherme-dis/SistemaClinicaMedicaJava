@@ -2,10 +2,11 @@ package Modules;
 
 import DataClass.DadosExames;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Consulta {
+public class Consulta implements Serializable {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
@@ -13,42 +14,52 @@ public class Consulta {
     //Associates
     private Pacientes paciente;
     private Funcionarios medico, outrosFuncionarios;
-    private DadosExames exameslist;
 
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
+    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, Funcionarios outrosFuncionarios) {
         setDataDaConsulta(dataDaConsulta);
-        setObservacoes(medicamentos);
+        setMedicamentos(medicamentos);
         setObservacoes(observacoes);
         setReceita(receita);
         setPaciente(pacientes);
         setMedico(medico);
         setExames(exames);
-        this.exameslist = exameslist;
         setOutrosFuncionarios(outrosFuncionarios);
     }
 
-    public static Consulta cadastrar(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, DadosExames exameslist, Funcionarios outrosFuncionarios) {
-        return new Consulta(dataDaConsulta, medicamentos, observacoes, receita, pacientes, medico, exames, exameslist, outrosFuncionarios);
-    }
+
 
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
-        this.paciente = paciente;
-        this.medico = medico;
-
+        setPaciente(paciente);
+        setMedico(medico);
     }
 
     //3.d
-    private static int nroConsultas;
+    private static int nroConsultas=0;
 
-    public boolean resetConsultas() {
-        nroConsultas = 0;
-        return true;
+    public static int getNroConsultas() {
+        return nroConsultas;
+    }
+
+    public static void setNroConsultas(int nroConsultas) {
+        Consulta.nroConsultas = nroConsultas;
+    }
+
+    public static void resetConsultas() {
+        setNroConsultas(0);
     }
 
     //3.e
-    private static int limiteConsultas;
+    private static int limiteConsultas=0;
+
+    public static int getLimiteConsultas() {
+        return limiteConsultas;
+    }
+
+    public static void setLimiteConsultas(int limiteConsultas) {
+        Consulta.limiteConsultas = limiteConsultas;
+    }
 
     //4
 
@@ -56,19 +67,23 @@ public class Consulta {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         ((OutrosFuncionarios) outrosFuncionarios).setnroConsultas(((OutrosFuncionarios) outrosFuncionarios).getNroConsultas() + 1);
         ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
+        nroConsultas++;
 
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
             for (String exame : exames) {
-                soma += Exames.valorSemPlano(exameslist.buscar(exame));
+                soma += Exames.valorSemPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
+            //TODO testar isso
+            ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
         } else {
             for (String exame : exames) {
-                soma += Exames.valorComPlano(exameslist.buscar(exame));
+                soma += Exames.valorComPlano(DadosExames.buscar(exame));
                 ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
             }
         }
+
         return soma + ((Medicos) medico).getValorConsulta();
     }
 
@@ -90,21 +105,6 @@ public class Consulta {
         return true;
     }
 
-    public static int getNroConsultas() {
-        return nroConsultas;
-    }
-
-    public static void setNroConsultas(int nroConsultas) {
-        Consulta.nroConsultas = nroConsultas;
-    }
-
-    public static int getLimiteConsultas() {
-        return limiteConsultas;
-    }
-
-    public static void setLimiteConsultas(int limiteConsultas) {
-        Consulta.limiteConsultas = limiteConsultas;
-    }
 
 
     public Date getDataDaConsulta() {

@@ -1,44 +1,58 @@
 package Modules;
-public class Endereco {
-    private String rua, complemento, bairro, cidade;
-    private int numero, cep;
 
-    //Metodo Cria Endereço
-    //Recebe como parametros as informacoes do endereco
-    //Rua , Complemento (apto/casa), bairro, cidade, numero e cep
-    public Endereco(String rua, String complemento, String bairro, String cidade, int numero, int cep) {
-        setRua(rua);
-        setComplemento(complemento);
-        setBairro(bairro);
-        setCidade(cidade);
-        setNumero(numero);
-        setCep(cep);
+import java.io.Serializable;
+
+public class Endereco implements Serializable {
+    private String rua, complemento, bairro, cidade, numero, cep;
+
+    public Endereco(String rua, String complemento, String bairro, String cidade, String numero, String cep) {
+        if (!setRua(rua)) {
+            throw new IllegalArgumentException("O nome da rua não esta correta.");
+        }
+        if (!setComplemento(complemento)) {
+            throw new IllegalArgumentException("O complemento não está correto.");
+        }
+        if (!setBairro(bairro)) {
+            throw new IllegalArgumentException("O nome do bairro não está correto.");
+        }
+        if (!setCidade(cidade)) {
+            throw new IllegalArgumentException("O nome da cidade não está correto.");
+        }
+        if (!setNumero(numero)) {
+            throw new IllegalArgumentException("O numero da rua não está correto.");
+        }
+        if (!setCep(cep)) {
+            throw new IllegalArgumentException("O cep não está correto.");
+        }
     }
+
     //Rua
     public String getRua() {
         return rua;
     }
-
     public boolean setRua(String rua) {
-        if(rua.length() > 0)
-        {
+        if (rua.isEmpty()) {
+            return false;
+        } else if (rua.length() > 50) {
+            return false;
+        } else {
             this.rua = rua;
             return true;
         }
-        else    
-            return false;
     }
+
     //Complemento
     public String getComplemento() {
         return complemento;
     }
 
     public boolean setComplemento(String complemento) {
-        if(complemento.length() > 0){
+        if (complemento.isEmpty()) {
+            return false;
+        } else {
             this.complemento = complemento;
             return true;
-        }else
-            return false;
+        }
     }
     //Bairro
     public String getBairro() {
@@ -46,45 +60,55 @@ public class Endereco {
     }
 
     public boolean setBairro(String bairro) {
-        if(bairro.length() > 0){
+        if (bairro.isEmpty()) {
+            return false;
+        } else {
             this.bairro = bairro;
             return true;
-        }else
-            return false;
+        }
     }
+
     //Cidade
     public String getCidade() {
         return cidade;
     }
 
     public boolean setCidade(String cidade) {
-        if(cidade.length() > 0){
+        if (cidade.isEmpty()) {
+            return false;
+        } else {
             this.cidade = cidade;
             return true;
-        }else
-            return false;
+        }
+
     }
-    //Numero
-    public int getNumero() {
+
+    //NUMERO
+    public String getNumero() {
         return numero;
     }
 
-    public boolean setNumero(int numero) {
-        if(numero < 0)
+    public boolean setNumero(String numero) {
+        if (numero.isEmpty()) {
             return false;
-        else{
+        } else {
             this.numero = numero;
             return true;
         }
+
     }
-    //Cep
-    public int getCep() {
+
+    //CEP
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
-        this.cep = cep;
+    public boolean setCep(String cep) {
+        if (cep.isEmpty()) {
+            return false;
+        } else {
+            this.cep = cep;
+            return true;
+        }
     }
-
-    
 }

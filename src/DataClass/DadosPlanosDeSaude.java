@@ -1,38 +1,51 @@
 package DataClass;
 
+import Modules.Persist;
 import Modules.PlanoDeSaude;
 
 import java.util.ArrayList;
 
 public class DadosPlanosDeSaude {
-    private final ArrayList<PlanoDeSaude> planoDeSaudeArrayList = new ArrayList<>();
+    private static ArrayList<PlanoDeSaude> planoDeSaudeArrayList = new ArrayList<>();
 
-    public void cadastrar(PlanoDeSaude c) {
-        this.planoDeSaudeArrayList.add(c);
-    }
-
-    public void listar() {
-        for (PlanoDeSaude objeto : this.planoDeSaudeArrayList) System.out.println(objeto);
-    }
-
-    //este método retorna o objeto Paciente caso encontrado, ou null, caso não encontrado
-    public PlanoDeSaude buscar(String nome) {//pode-se usar também int
-        PlanoDeSaude c = null;
-        for (PlanoDeSaude objeto : this.planoDeSaudeArrayList) {
-            if (objeto.getNome().equals(nome)) {
-                c = objeto;
-                break;
-            }
+    public static boolean inicializaPlanoDeSaude() {
+        planoDeSaudeArrayList = (ArrayList<PlanoDeSaude>) Persist.recuperar("src/DataSource/PlanoDeSaude.dat");
+        if (planoDeSaudeArrayList == null) {
+            planoDeSaudeArrayList = new ArrayList<>();
         }
-        return c;
+        return true;
     }
 
-    //este método usa o método buscar já implementado
-    public boolean excluir(String nome) {
-        PlanoDeSaude c = this.buscar(nome);
-        if (c != null) {
-            this.planoDeSaudeArrayList.remove(c);
+    public static boolean cadastrar(PlanoDeSaude c) {
+
+        if(buscar(c.getNome())==null){
+            planoDeSaudeArrayList.add(c);
             return true;
-        } else return false;
+        }
+        else System.out.println("Plano de saude já esta cadastrado");
+        return true;
+
+
+    }
+    public static boolean gravar(){
+        Persist.gravar(planoDeSaudeArrayList, "src/DataSource/PlanoDeSaude.dat");
+        return true;
+    }
+
+    public static void listar() {
+        for (PlanoDeSaude objeto : planoDeSaudeArrayList) System.out.println(objeto);
+    }
+
+    public static PlanoDeSaude buscar(String nome) {
+        return planoDeSaudeArrayList.stream().filter(objeto -> objeto.getNome().equals(nome)).findFirst().orElse(null);
+    }
+
+    public static boolean excluir(String nome) {
+        PlanoDeSaude c = buscar(nome);
+        if (c != null) {
+            planoDeSaudeArrayList.remove(c);
+            return true;
+        }
+        return false;
     }
 }
