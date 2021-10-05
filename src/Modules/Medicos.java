@@ -26,12 +26,12 @@ public class Medicos extends Funcionarios {
     }
 
     //3.h
-
     public double calcularSalario() {
-        if (valorlimConsulta <= nroConsultas) {
-            somaConsultasMes += bonus;
-        }
-        return somaConsultasMes;
+        return somaConsultasMes+super.getSalarioBase();
+    }
+    public boolean resetSomaConsultaMes() {
+        this.somaConsultasMes = 0;
+        return true;
     }
 
     @Override
@@ -45,10 +45,7 @@ public class Medicos extends Funcionarios {
     }
 
 
-    public boolean resetSomaConsultaMes() {
-        this.somaConsultasMes = 0;
-        return true;
-    }
+
 
     public PlanoDeSaude[] getPlanoDeSaude() {
         return planoDeSaude;

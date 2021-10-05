@@ -62,28 +62,24 @@ public class Consulta implements Serializable {
     }
 
     //4
-
     public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
-        ((OutrosFuncionarios) outrosFuncionarios).setnroConsultas(((OutrosFuncionarios) outrosFuncionarios).getNroConsultas() + 1);
-        ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
         nroConsultas++;
-
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
             for (String exame : exames) {
                 soma += Exames.valorSemPlano(DadosExames.buscar(exame));
-                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
+
             }
             //TODO testar isso
             ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
         } else {
             for (String exame : exames) {
                 soma += Exames.valorComPlano(DadosExames.buscar(exame));
-                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
+
             }
         }
-
+        ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
         return soma + ((Medicos) medico).getValorConsulta();
     }
 

@@ -29,7 +29,6 @@ public class App implements Serializable {
 
 
 
-            //CODIGO AQUI
 
 
 
@@ -133,8 +132,8 @@ public class App implements Serializable {
 
 //Cadastro de funcionarios.
         /*
-        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"isadora","isa123","1111",date,1100,250,"Secretaria",10));
-        DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new PlanoDeSaude[]{DadosPlanosDeSaude.buscar("Votorantim"), DadosPlanosDeSaude.buscar("Prevent Senior")}, 50));
+        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"isadora","isa123","1111",date,1100,"Secretaria"));
+            DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new PlanoDeSaude[]{DadosPlanosDeSaude.buscar("Votorantim"), DadosPlanosDeSaude.buscar("Prevent Senior")}, 50));
 
         DadosFuncionarios.listar();*/
 
