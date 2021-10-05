@@ -44,9 +44,7 @@ public class DadosPacientes {
                 break;
             }
         }
-        if (c == null) {
-            throw new IllegalArgumentException("CPF do paciente não encontrado.");
-        }
+
         return c;
     }
 

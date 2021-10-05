@@ -125,8 +125,8 @@ public class App implements Serializable {
         /*
         //DadosPacientes.inicializaPacientes();
         date = new Date();
-        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Arthur","90718598008","36939488","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
-        DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme Dias Cardoso Silva","70122924665","192168","solteiro",new Endereco("waldomiro caetano machado","casa","nova california","passos",81,37904570),"masculino",date,date,20));
+        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Arthur","90718598008","36939488","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
+            DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme Dias Cardoso Silva","70122924665","19215568","solteiro",new Endereco("waldomiro caetano machado","casa","nova california","passos","81","37904570"),"masculino",date,date,20));
 
         DadosPacientes.listar();*/
 

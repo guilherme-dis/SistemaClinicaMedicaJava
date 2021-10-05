@@ -34,18 +34,15 @@ public class Medicos extends Funcionarios {
         return true;
     }
 
-    @Override
-    public void loginClinica() {
+    //5.c
 
-    }
 
     @Override
-    public void logoffClinica() {
+    public void resetaInfo() {
+        nroConsultas=0;
+        somaConsultasMes=0;
 
     }
-
-
-
 
     public PlanoDeSaude[] getPlanoDeSaude() {
         return planoDeSaude;

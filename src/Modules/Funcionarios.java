@@ -5,7 +5,7 @@ import java.lang.reflect.GenericDeclaration;
 import java.util.Arrays;
 import java.util.Date;
 
-public abstract class Funcionarios extends Pessoas implements Serializable {
+public abstract class Funcionarios extends Pessoas  {
     private String usuario, senha, NumeroCarteiraDeTrabalho;
     private Date dataAdmissaoNaClinica;
     private double salarioBase;
@@ -94,10 +94,10 @@ public abstract class Funcionarios extends Pessoas implements Serializable {
     //5.b
     public abstract double calcularSalario();
     //5.c
-    //Sempre que o usuário fizer o login, vai quardar em uma variavel a hora que logou, e quando sair, faz a subtração de quanto tempo ficou, joga esse valor para o banco de horas, e o calcular
-    //salario vai dar um bonus dependendo de quantas horas ficou
-    public abstract void loginClinica();
-    public abstract void logoffClinica();
+    //Esse método vai resetar todos os valores de qualquer funcionário para os bonus a serem recebidos. É um métido a ser usado ao fim do mes
+    //ele reseta o número de consultas geral.
+    //ele reseta o número de consultas do médico e o seu atribulo somaConsultasMes;
+    public abstract void resetaInfo();
 
     @Override
     public String toString() {

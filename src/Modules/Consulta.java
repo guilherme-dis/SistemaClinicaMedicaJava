@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Consulta implements Serializable {
+public class Consulta implements Serializable,ConsultaInterface {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
@@ -62,6 +62,7 @@ public class Consulta implements Serializable {
     }
 
     //4
+    //TODO medico cobrar de gratis se o plano do paciente for o que ele atende
     public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
         nroConsultas++;
@@ -161,6 +162,12 @@ public class Consulta implements Serializable {
     public boolean setReceita(String receita) {
         this.receita = receita;
         return true;
+    }
+
+    @Override
+    public String mostraDadosPacienteMedico() {
+        return "A consulta com o paciente "+paciente+
+                " vai ser realizada com o médico "+medico;
     }
 
     @Override

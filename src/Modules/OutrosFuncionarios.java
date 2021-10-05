@@ -3,7 +3,7 @@ package Modules;
 import java.io.Serializable;
 import java.util.Date;
 
-public class OutrosFuncionarios extends Funcionarios implements Serializable {
+public class OutrosFuncionarios extends Funcionarios  {
     private String cargo;
 
 
@@ -30,7 +30,13 @@ public class OutrosFuncionarios extends Funcionarios implements Serializable {
         }
         return getSalarioBase();
     }
+    //5.c
 
+
+    @Override
+    public void resetaInfo() {
+        Consulta.setNroConsultas(0);
+    }
 
     //CONSTRUTOR.
     public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
@@ -54,15 +60,7 @@ public class OutrosFuncionarios extends Funcionarios implements Serializable {
     }
 
 
-    @Override
-    public void loginClinica() {
 
-    }
-
-    @Override
-    public void logoffClinica() {
-
-    }
 
     @Override
     public String toString() {
