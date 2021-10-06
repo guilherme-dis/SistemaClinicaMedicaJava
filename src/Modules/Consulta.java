@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
-public class Consulta implements Serializable {
+public class Consulta implements Serializable,ConsultaInterface {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
@@ -62,28 +62,25 @@ public class Consulta implements Serializable {
     }
 
     //4
-
+    //TODO medico cobrar de gratis se o plano do paciente for o que ele atende
     public double realizarConsulta() {
         paciente.setDataUltimaConsulta(dataDaConsulta);
-        ((OutrosFuncionarios) outrosFuncionarios).setnroConsultas(((OutrosFuncionarios) outrosFuncionarios).getNroConsultas() + 1);
-        ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
         nroConsultas++;
-
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
             for (String exame : exames) {
                 soma += Exames.valorSemPlano(DadosExames.buscar(exame));
-                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
+
             }
             //TODO testar isso
             ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
         } else {
             for (String exame : exames) {
                 soma += Exames.valorComPlano(DadosExames.buscar(exame));
-                ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
+
             }
         }
-
+        ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
         return soma + ((Medicos) medico).getValorConsulta();
     }
 
@@ -165,6 +162,12 @@ public class Consulta implements Serializable {
     public boolean setReceita(String receita) {
         this.receita = receita;
         return true;
+    }
+
+    @Override
+    public String mostraDadosPacienteMedico() {
+        return "A consulta com o paciente "+paciente+
+                " vai ser realizada com o médico "+medico;
     }
 
     @Override

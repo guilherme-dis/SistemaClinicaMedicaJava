@@ -3,7 +3,7 @@ package Modules;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Pacientes extends Pessoas implements Serializable {
+public class Pacientes extends Pessoas  {
     private Date dataUltimaConsulta;
     private String sexo;
     private Date dateNascimento;

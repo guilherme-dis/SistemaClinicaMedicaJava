@@ -26,28 +26,22 @@ public class Medicos extends Funcionarios {
     }
 
     //3.h
-
     public double calcularSalario() {
-        if (valorlimConsulta <= nroConsultas) {
-            somaConsultasMes += bonus;
-        }
-        return somaConsultasMes;
+        return somaConsultasMes+super.getSalarioBase();
     }
-
-    @Override
-    public void loginClinica() {
-
-    }
-
-    @Override
-    public void logoffClinica() {
-
-    }
-
-
     public boolean resetSomaConsultaMes() {
         this.somaConsultasMes = 0;
         return true;
+    }
+
+    //5.c
+
+
+    @Override
+    public void resetaInfo() {
+        nroConsultas=0;
+        somaConsultasMes=0;
+
     }
 
     public PlanoDeSaude[] getPlanoDeSaude() {

@@ -29,8 +29,7 @@ public class App implements Serializable {
 
 
 
-            //CODIGO AQUI
-            
+
 
 
 
@@ -126,15 +125,15 @@ public class App implements Serializable {
         /*
         //DadosPacientes.inicializaPacientes();
         date = new Date();
-        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Arthur","90718598008","36939488","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau",780,37975000),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
-        DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme Dias Cardoso Silva","70122924665","192168","solteiro",new Endereco("waldomiro caetano machado","casa","nova california","passos",81,37904570),"masculino",date,date,20));
+        DadosPacientes.cadastrar(new PacienteComPlanoDeSaude("Arthur","90718598008","36939488","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"muito",date,date,DadosPlanosDeSaude.buscar("Assim Sa&uacute;de"), "", "", date));
+            DadosPacientes.cadastrar(new PacienteSemPlanoDeSaude("Guilherme Dias Cardoso Silva","70122924665","19215568","solteiro",new Endereco("waldomiro caetano machado","casa","nova california","passos","81","37904570"),"masculino",date,date,20));
 
         DadosPacientes.listar();*/
 
 //Cadastro de funcionarios.
         /*
-        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"isadora","isa123","1111",date,1100,250,"Secretaria",10));
-        DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new PlanoDeSaude[]{DadosPlanosDeSaude.buscar("Votorantim"), DadosPlanosDeSaude.buscar("Prevent Senior")}, 50));
+        DadosFuncionarios.cadastrar(new OutrosFuncionarios("Isadora Maria","44225173097","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"isadora","isa123","1111",date,1100,"Secretaria"));
+            DadosFuncionarios.cadastrar(new Medicos("Carlos","26776897077","55555555","casado",new Endereco("Graziel ferreira amorin","casa","bela vista","itau","780","37975000"),"carlin","carlin777","1111",date,7000,"7777",new String[]{"sangue", "Hepatite"}, 10, 100, new PlanoDeSaude[]{DadosPlanosDeSaude.buscar("Votorantim"), DadosPlanosDeSaude.buscar("Prevent Senior")}, 50));
 
         DadosFuncionarios.listar();*/
 
