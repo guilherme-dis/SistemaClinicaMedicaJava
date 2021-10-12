@@ -2,28 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b467720f-32ef-4cdc-97de-12ae510705ae" name="Changes" comment="Organizando os Exames. Fazendo os exames persistirem em arquivos.">
-      <change afterPath="$PROJECT_DIR$/src/Modules/ConsultaInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataClass/DadosPacientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataClass/DadosPacientes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Consulta.dat" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Consulta.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Funcionarios.dat" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Funcionarios.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Pacientes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/DataSource/Pacientes.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Consulta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Consulta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Funcionarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Funcionarios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Medicos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Medicos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/OutrosFuncionarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/OutrosFuncionarios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pacientes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TrabalhoFinalPOO1/Modules/Pacientes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataClass/DadosPacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataClass/DadosPacientes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataSource/Consulta.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataSource/Consulta.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataSource/Exames.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataSource/Exames.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataSource/Funcionarios.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataSource/Funcionarios.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataSource/Pacientes.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataSource/Pacientes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataSource/Pacientes.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modules/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modules/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Consulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Medicos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Medicos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/OutrosFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/Pacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Pacientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/Exames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/Exames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modules/ValidaCPF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/ValidaCPF.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +128,9 @@
       <workItem from="1633398674717" duration="2159000" />
       <workItem from="1633473746923" duration="20000" />
       <workItem from="1633474127105" duration="3762000" />
+      <workItem from="1633558841035" duration="499000" />
+      <workItem from="1633734930492" duration="1548000" />
+      <workItem from="1634048166286" duration="4043000" />
     </task>
     <task id="LOCAL-00001" summary="Realizar Consulta finalizado">
       <created>1632362454746</created>
