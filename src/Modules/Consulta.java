@@ -5,8 +5,9 @@ import DataClass.DadosExames;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
-public class Consulta implements Serializable,ConsultaInterface {
+public class Consulta implements Serializable, ConsultaInterface {
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
@@ -27,8 +28,6 @@ public class Consulta implements Serializable,ConsultaInterface {
     }
 
 
-
-
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
         setPaciente(paciente);
@@ -36,7 +35,7 @@ public class Consulta implements Serializable,ConsultaInterface {
     }
 
     //3.d
-    private static int nroConsultas=0;
+    private static int nroConsultas = 0;
 
     public static int getNroConsultas() {
         return nroConsultas;
@@ -51,7 +50,7 @@ public class Consulta implements Serializable,ConsultaInterface {
     }
 
     //3.e
-    private static int limiteConsultas=0;
+    private static int limiteConsultas = 0;
 
     public static int getLimiteConsultas() {
         return limiteConsultas;
@@ -72,12 +71,18 @@ public class Consulta implements Serializable,ConsultaInterface {
                 soma += Exames.valorSemPlano(DadosExames.buscar(exame));
 
             }
-            //TODO testar isso
-            ((PacienteSemPlanoDeSaude)paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
+            ((PacienteSemPlanoDeSaude) paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
+
         } else {
             for (String exame : exames) {
                 soma += Exames.valorComPlano(DadosExames.buscar(exame));
 
+            }
+            for (PlanoDeSaude plano : ((Medicos) medico).getPlanoDeSaude()) {
+                if (Objects.equals(plano, ((PacienteComPlanoDeSaude) paciente).getPlanoDeSaude())) {
+                    paciente.setDataUltimaConsulta(new Date());
+                    return soma;
+                }
             }
         }
         ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
@@ -101,7 +106,6 @@ public class Consulta implements Serializable,ConsultaInterface {
         this.exames = exames;
         return true;
     }
-
 
 
     public Date getDataDaConsulta() {
@@ -166,8 +170,8 @@ public class Consulta implements Serializable,ConsultaInterface {
 
     @Override
     public String mostraDadosPacienteMedico() {
-        return "A consulta com o paciente "+paciente+
-                " vai ser realizada com o médico "+medico;
+        return "A consulta com o paciente " + paciente +
+                " vai ser realizada com o médico " + medico;
     }
 
     @Override

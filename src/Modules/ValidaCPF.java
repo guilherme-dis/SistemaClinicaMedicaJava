@@ -17,7 +17,7 @@ public class ValidaCPF {
             sm = 0;
             peso = 10;
             for (i = 0; i < 9; i++) {
-                num = (int) (CPF.charAt(i) - 48);
+                num = CPF.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -32,7 +32,7 @@ public class ValidaCPF {
             sm = 0;
             peso = 11;
             for (i = 0; i < 10; i++) {
-                num = (int) (CPF.charAt(i) - 48);
+                num = CPF.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -43,10 +43,7 @@ public class ValidaCPF {
             else
                 dig11 = (char) (r + 48);
 
-            if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
-                return (true);
-            else
-                return (false);
+            return (dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10));
         } catch (InputMismatchException erro) {
             return (false);
         }

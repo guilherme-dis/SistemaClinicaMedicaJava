@@ -1,5 +1,4 @@
 package Modules;
-//TODO Trabalhar com exceptions e erros aqui.
 
 import java.io.Serializable;
 
