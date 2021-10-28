@@ -42,8 +42,22 @@ public class DadosConsulta {
             throw new IllegalArgumentException("Não foi encontrado consulta para esse paciente.");
         }
         return c;
+    }public static Consulta buscarNome(String nome) {//pode-se usar também int
+        Consulta c = null;
+        for (Consulta objeto : consultaArrayList) {
+            if (objeto.getPaciente().getNome().equals(nome)) {
+                c = objeto;
+                break;
+            }
+        }
+        if(c==null){
+            throw new IllegalArgumentException("Não foi encontrado consulta para esse paciente.");
+        }
+        return c;
     }
-
+    public static ArrayList<Consulta> devolve(){
+        return consultaArrayList;
+    }
     //este método usa o método buscar já implementado
     public static boolean excluir(String cpf) {
         Consulta c = buscar(cpf);

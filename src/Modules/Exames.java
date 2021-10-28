@@ -59,6 +59,7 @@ public class Exames implements Serializable {
     //MÉTODOS
 
     public static double valorComPlano( Exames e) {
+        
         return e.getComPlano();
     }
 

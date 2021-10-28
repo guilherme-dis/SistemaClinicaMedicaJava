@@ -1,11 +1,20 @@
 package Modules;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class OutrosFuncionarios extends Funcionarios  {
+public class OutrosFuncionarios extends Funcionarios {
     private String cargo;
+    private double salarioBase;
 
+    // SALARIO BASE
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public boolean setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
+        return true;
+    }
 
     //3.f
     private static double valorASerPagoDeGratificacao;
@@ -33,16 +42,14 @@ public class OutrosFuncionarios extends Funcionarios  {
     //5.c
 
 
-    @Override
-    public void resetaInfo() {
-        Consulta.setNroConsultas(0);
-    }
+    
 
     //CONSTRUTOR.
     public OutrosFuncionarios(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
                               String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cargo) {
-        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
+        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica);
         setCargo(cargo);
+        setSalarioBase(salarioBase);
     }
 
 
@@ -60,11 +67,10 @@ public class OutrosFuncionarios extends Funcionarios  {
     }
 
 
-
-
     @Override
     public String toString() {
-        return super.toString()+"OutrosFuncionarios{" +
+        return super.toString() + "OutrosFuncionarios{" +
+                "salario"+salarioBase+
                 "cargo='" + cargo + '\'' +
                 "Valor a ser pago de gratificação=" + valorASerPagoDeGratificacao +
                 '}';
