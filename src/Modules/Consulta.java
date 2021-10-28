@@ -1,32 +1,38 @@
 package Modules;
 
-import DataClass.DadosExames;
-
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
-public class Consulta implements Serializable, ConsultaInterface {
+public class Consulta implements Serializable {
+
+    private boolean done;
     private Date dataDaConsulta;
     private String medicamentos, observacoes;
     private String receita;
-    private String[] exames;
+    private Exames[] exames;
     //Associates
     private Pacientes paciente;
     private Funcionarios medico, outrosFuncionarios;
 
-    public Consulta(Date dataDaConsulta, String medicamentos, String observacoes, String receita, Pacientes pacientes, Funcionarios medico, String[] exames, Funcionarios outrosFuncionarios) {
+    public Consulta(Date dataDaConsulta, String receita, Pacientes pacientes, Funcionarios medico, Funcionarios outrosFuncionarios, Exames[] exames) {
         setDataDaConsulta(dataDaConsulta);
-        setMedicamentos(medicamentos);
-        setObservacoes(observacoes);
         setReceita(receita);
         setPaciente(pacientes);
         setMedico(medico);
-        setExames(exames);
         setOutrosFuncionarios(outrosFuncionarios);
+        setExames(exames);
+        setDone(false);
     }
 
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
 
     //2.c
     public Consulta(Pacientes paciente, Medicos medico) {
@@ -39,6 +45,7 @@ public class Consulta implements Serializable, ConsultaInterface {
 
     public static int getNroConsultas() {
         return nroConsultas;
+
     }
 
     public static void setNroConsultas(int nroConsultas) {
@@ -62,21 +69,25 @@ public class Consulta implements Serializable, ConsultaInterface {
 
     //4
     //TODO medico cobrar de gratis se o plano do paciente for o que ele atende
-    public double realizarConsulta() {
+    public double realizarConsulta(String medicamentos, String observacoes) {
+
+        setMedicamentos(medicamentos);
+        setObservacoes(observacoes);
         paciente.setDataUltimaConsulta(dataDaConsulta);
         nroConsultas++;
         double soma = 0;
         if (paciente instanceof PacienteSemPlanoDeSaude) {
-            for (String exame : exames) {
-                soma += Exames.valorSemPlano(DadosExames.buscar(exame));
-
+            for (Exames exame : exames) {
+                if (exame != null) {
+                    soma += exame.getSemPlano();
+                }
             }
             ((PacienteSemPlanoDeSaude) paciente).setValorPagoNaUltimaConsulta(soma + ((Medicos) medico).getValorConsulta());
-
         } else {
-            for (String exame : exames) {
-                soma += Exames.valorComPlano(DadosExames.buscar(exame));
-
+            for (Exames exame : exames) {
+                if (exame != null) {
+                    soma += exame.getComPlano();
+                }
             }
             for (PlanoDeSaude plano : ((Medicos) medico).getPlanoDeSaude()) {
                 if (Objects.equals(plano, ((PacienteComPlanoDeSaude) paciente).getPlanoDeSaude())) {
@@ -85,7 +96,8 @@ public class Consulta implements Serializable, ConsultaInterface {
                 }
             }
         }
-        ((Medicos) medico).setSomaConsultasMes(((Medicos) medico).getSomaConsultasMes() + ((Medicos) medico).getValorConsulta());
+        ((Medicos) medico).setNroConsultas(((Medicos) medico).getNroConsultas() + 1);
+        this.done = true;
         return soma + ((Medicos) medico).getValorConsulta();
     }
 
@@ -97,16 +109,14 @@ public class Consulta implements Serializable, ConsultaInterface {
         this.paciente = paciente;
     }
 
-
-    public String[] getExames() {
+    public Exames[] getExames() {
         return exames;
     }
 
-    public boolean setExames(String[] exames) {
+    public boolean setExames(Exames[] exames) {
         this.exames = exames;
         return true;
     }
-
 
     public Date getDataDaConsulta() {
         return dataDaConsulta;
@@ -116,7 +126,6 @@ public class Consulta implements Serializable, ConsultaInterface {
         this.dataDaConsulta = dataDaConsulta;
         return true;
     }
-
 
     public Funcionarios getMedico() {
         return medico;
@@ -169,22 +178,17 @@ public class Consulta implements Serializable, ConsultaInterface {
     }
 
     @Override
-    public String mostraDadosPacienteMedico() {
-        return "A consulta com o paciente " + paciente +
-                " vai ser realizada com o médico " + medico;
-    }
-
-    @Override
     public String toString() {
-        return "Consulta{" +
-                "dataDaConsulta=" + dataDaConsulta +
-                ", medicamentos='" + medicamentos + '\'' +
-                ", observacoes='" + observacoes + '\'' +
-                ", receita='" + receita + '\'' +
-                ", exames=" + Arrays.toString(exames) +
-                ", paciente=" + paciente +
-                ", medico=" + medico +
-                ", outrosFuncionarios=" + outrosFuncionarios +
-                '}';
+        return "Consulta{"
+                + "Done" + done
+                + ", dataDaConsulta=" + dataDaConsulta
+                + ", medicamentos='" + medicamentos + '\''
+                + ", observacoes='" + observacoes + '\''
+                + ", receita='" + receita + '\''
+                + ", exames=" + Arrays.toString(exames)
+                + ", paciente=" + paciente
+                + ", medico=" + medico
+                + ", outrosFuncionarios=" + outrosFuncionarios
+                + '}';
     }
 }

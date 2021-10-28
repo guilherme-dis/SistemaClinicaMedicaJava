@@ -43,6 +43,9 @@ public class DadosExames {
         }
         return c;
     }
+    public static ArrayList<Exames> devolve() {//pode-se usar também int
+        return examesArrayList;
+    }
 
     //este método usa o método buscar já implementado
     public static boolean excluir(String nome) {

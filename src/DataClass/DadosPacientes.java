@@ -47,6 +47,9 @@ public class DadosPacientes {
 
         return c;
     }
+    public static ArrayList<Pacientes> devolve(){
+    return pacientesArrayList;
+}
 
     //este método usa o método buscar já implementado
     public static boolean excluir(String cpf) {

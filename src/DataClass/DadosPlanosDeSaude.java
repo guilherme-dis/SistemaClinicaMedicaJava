@@ -39,6 +39,9 @@ public class DadosPlanosDeSaude {
     public static PlanoDeSaude buscar(String nome) {
         return planoDeSaudeArrayList.stream().filter(objeto -> objeto.getNome().equals(nome)).findFirst().orElse(null);
     }
+    public static ArrayList<PlanoDeSaude> imprime(){
+        return planoDeSaudeArrayList;
+    }
 
     public static boolean excluir(String nome) {
         PlanoDeSaude c = buscar(nome);

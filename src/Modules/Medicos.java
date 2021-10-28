@@ -8,41 +8,42 @@ import java.util.Date;
 public class Medicos extends Funcionarios {
     private String CRM;
     private String[] especialidadesAtendidas;
-    private double valorConsulta, somaConsultasMes, bonus;
+    private double valorConsulta, bonus;
     private int nroConsultas=0, valorlimConsulta;
     private PlanoDeSaude[] planoDeSaude;
 
-    //2.a
-    public Medicos(String cpf, PlanoDeSaude[] planoDeSaude) {
-        super(cpf);
-        if (!setPlanoDeSaude(planoDeSaude)) {
-            throw new IllegalArgumentException("Erro ao inserir plano de saude");
+
+    public Medicos(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
+                   String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, String cRM,
+                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta, PlanoDeSaude[] planoDeSaude, double bonus) {
+        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica);
+        CRM = cRM;
+        if (!setEspecialidadesAtendidas(especialidadesAtendidas)) {
+            throw new IllegalArgumentException("Ocorreu um erro ao informar as especialidades atendidas.");
         }
-        ;
+        if (!setValorlim_consulta(valorlimConsulta)) {
+            throw new IllegalArgumentException("Valor Limite de consulta inserido incorretamente.");
+        }
+        if (!setValorConsulta(valorConsulta)) {
+            throw new IllegalArgumentException("Valor de cada consulta inserido incorretamente.");
+        }
+        if (!setNroConsultas(nroConsultas = 0)) {
+            throw new IllegalArgumentException("Numero de consultas inserido incorretamente.");
+        }
+        if (!setPlanoDeSaude(planoDeSaude)) {
+            throw new IllegalArgumentException("Plano de saude inserido incorretamente.");
+        }
+        if (!setBonus(bonus)) {
+            throw new IllegalArgumentException("Valor bonus inserido incorretamente.");
+        }
     }
 
-    //2.b
-    public Medicos() {
-    }
 
-    //3.h
     public double calcularSalario() {
-        return somaConsultasMes+super.getSalarioBase();
-    }
-    public boolean resetSomaConsultaMes() {
-        this.somaConsultasMes = 0;
-        return true;
+        return (nroConsultas<valorlimConsulta)?valorConsulta*nroConsultas:(valorConsulta*nroConsultas)+bonus;
     }
 
-    //5.c
 
-
-    @Override
-    public void resetaInfo() {
-        nroConsultas=0;
-        somaConsultasMes=0;
-
-    }
 
     public PlanoDeSaude[] getPlanoDeSaude() {
         return planoDeSaude;
@@ -67,14 +68,7 @@ public class Medicos extends Funcionarios {
         }
     }
 
-    public double getSomaConsultasMes() {
-        return somaConsultasMes;
-    }
 
-    public boolean setSomaConsultasMes(double somaConsultasMes) {
-        this.somaConsultasMes = somaConsultasMes;
-        return true;
-    }
 
     // Numero de Consultas
     public int getNroConsultas() {
@@ -142,30 +136,7 @@ public class Medicos extends Funcionarios {
         return true;
     }
 
-    public Medicos(String nome, String cpf, String rg, String estadoCivil, Endereco endereco, String usuario, String senha,
-                   String numeroCarteiraDeTrabalho, Date dataAdmissaoNaClinica, double salarioBase, String cRM,
-                   String[] especialidadesAtendidas, int valorlimConsulta, double valorConsulta, PlanoDeSaude[] planoDeSaude, double bonus) {
-        super(nome, cpf, rg, estadoCivil, endereco, usuario, senha, numeroCarteiraDeTrabalho, dataAdmissaoNaClinica, salarioBase);
-        CRM = cRM;
-        if (!setEspecialidadesAtendidas(especialidadesAtendidas)) {
-            throw new IllegalArgumentException("Ocorreu um erro ao informar as especialidades atendidas.");
-        }
-        if (!setValorlim_consulta(valorlimConsulta)) {
-            throw new IllegalArgumentException("Valor Limite de consulta inserido incorretamente.");
-        }
-        if (!setValorConsulta(valorConsulta)) {
-            throw new IllegalArgumentException("Valor de cada consulta inserido incorretamente.");
-        }
-        if (!setNroConsultas(nroConsultas = 0)) {
-            throw new IllegalArgumentException("Numero de consultas inserido incorretamente.");
-        }
-        if (!setPlanoDeSaude(planoDeSaude)) {
-            throw new IllegalArgumentException("Plano de saude inserido incorretamente.");
-        }
-        if (!setBonus(bonus)) {
-            throw new IllegalArgumentException("Valor bonus inserido incorretamente.");
-        }
-    }
+
 
 
     @Override
@@ -174,7 +145,6 @@ public class Medicos extends Funcionarios {
                 "CRM='" + CRM + '\'' +
                 ", especialidadesAtendidas=" + Arrays.toString(especialidadesAtendidas) +
                 ", valorConsulta=" + valorConsulta +
-                ", somaConsultasMes=" + somaConsultasMes +
                 ", bonus=" + bonus +
                 ", nroConsultas=" + nroConsultas +
                 ", valorlimConsulta=" + valorlimConsulta +
