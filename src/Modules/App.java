@@ -21,6 +21,7 @@ public class App implements Serializable {
             System.out.println();
             DadosFuncionarios.listar();
             System.out.println();
+            System.out.println();
             DadosConsulta.listar();
             
             
